@@ -1,0 +1,4650 @@
+
+###################################################################
+#                                                                 #
+# FicTrac: A webcam-based method for generating fictive paths.    #
+# Version: public release (build Jun 11 2018)                     #
+# Copyright (C) 2011-2017 Richard Moore (rjdmoore@uqconnect.edu)  #
+#                                                                 #
+###################################################################
+#                                                                 #
+# This software uses libraries from the following projects:       #
+#     - OpenCV (http://opencv.org)                                #
+#     - Cairo (http://www.cairographics.org)                      #
+#     - NLopt (http://ab-initio.mit.edu/nlopt/)                   #
+# These libraries are not distributed with this release but are   #
+# freely available as open-source projects.                       #
+#                                                                 #
+# This work is licensed under the Creative Commons                #
+# Attribution-NonCommercial-ShareAlike 3.0 Unported License.      #
+# To view a copy of this license, visit                           #
+# http://creativecommons.org/licenses/by-nc-sa/3.0/               #
+#                                                                 #
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY       #
+# KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE      #
+# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR         #
+# PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR   #
+# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER     #
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, #
+# ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE  #
+# USE OR OTHER DEALINGS IN THE SOFTWARE.                          #
+#                                                                 #
+###################################################################
+
+
+Reading configuration file...
+
+Initialising program variables:
+input_vid_fn: .  .  ''
+output_fn: .  .  .  'output.txt'
+mask_fn:.  .  .  .  'MASK.tiff'
+transform_fn: .  .  'calibration-transform.dat'
+template_fn:  .  .  'template.jpg'
+closed_loop_fn:  .  ''
+debug_video_fn:  .  'output-debug'
+frames_video_fn: .  'output-raw_frames'
+frame_skip:.  .  .  0
+frame_step:.  .  .  1
+do_display:.  .  .  1
+no_prompts:.  .  .  1
+do_config: .  .  .  0
+save_video:.  .  .  0
+save_input_video:.  1
+do_search: .  .  .  0
+do_update: .  .  .  1
+load_template:.  .  0
+fisheye:.  .  .  .  0
+cam_input: .  .  .  1
+fps: .  .  .  .  .  -1
+cam_index: .  .  .  0
+use_ball_colour: .  0
+vfov:.  .  .  .  .  3.830000
+quality_factor:  .  8
+remap_width:  .  .  80
+remap_height: .  .  80
+sphere_width: .  .  240
+sphere_height:.  .  120
+nlopt_ftol:.  .  .  0.000100
+nlopt_max_eval:  .  100
+error_thresh: .  .  15000.000000
+thresh_win:.  .  .  0.200000 (17 px)
+thresh_ratio: .  .  2.500000
+do_led_display:  .  0
+do_socket_out:.  .  0
+sphere_orient:.  .  0.000000 0.000000 0.000000
+bayer_type:.  .  .  0
+force_draw_config:  0
+
+PGRSource: looking for camera at index 0...
+Connected to PGR camera (Flea3 FL3-U3-13Y3M/Cypress VITA1300 (1/2" 1280x1024 CMOS) max res: 1280x1024)
+input image size: 480 x 480
+cam-world rotation matrix:
+	-1.000 	 0.000 	 0.000 
+	 0.000 	 0.000 	 1.000 
+	 0.000 	 1.000 	 0.000 
+cam-world translation vector:
+ 0.000  0.000  0.000
+sphere ROI centre: (0.10, 0.03, 0.99) radius: 56.0 degrees
+using a rectilinear camera model
+AVWriter: 	output-raw_frames.avi opened for video writing
+sphere rotation from forward: -0.029  0.103  0.000
+input mask size: 480 x 480
+input thread initialised
+sphere radius/distance ratio: 0.829
+Output data file: output.txt
+
+doing frame 1
+match overlap: 76.1%
+optimum rotation:	0.000 0.000 0.000  (err=0.000/its=0)
+grab/test/save/draw/wait/total time: 0.0ms/0.0ms/0.0ms/1.0ms/0.0ms/1.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 1000.0
+
+doing frame 2
+initial guess:		0.000 0.000 0.000
+initial minimisation:	-0.000 -0.002 0.002  (err=4782.681)
+match overlap: 99.8%
+optimum rotation:	-0.000 -0.002 0.002  (err=4782.681/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 572.5
+
+doing frame 3
+initial guess:		-0.000 -0.002 0.001
+initial minimisation:	0.000 -0.002 -0.001  (err=4914.357)
+match overlap: 99.9%
+optimum rotation:	0.000 -0.002 -0.001  (err=4914.357/its=26)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 424.4
+
+doing frame 4
+initial guess:		0.000 -0.002 -0.001
+initial minimisation:	-0.006 0.000 -0.003  (err=5096.971)
+match overlap: 99.1%
+optimum rotation:	-0.006 0.000 -0.003  (err=5096.971/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 329.5
+
+doing frame 5
+initial guess:		-0.006 -0.000 -0.003
+initial minimisation:	-0.004 0.000 -0.004  (err=5137.950)
+match overlap: 99.7%
+optimum rotation:	-0.004 0.000 -0.004  (err=5137.950/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 275.5
+
+doing frame 6
+initial guess:		-0.004 0.000 -0.004
+initial minimisation:	-0.003 0.000 -0.003  (err=5373.507)
+match overlap: 99.8%
+optimum rotation:	-0.003 0.000 -0.003  (err=5373.507/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 238.3
+
+doing frame 7
+initial guess:		-0.003 0.000 -0.003
+initial minimisation:	-0.004 -0.001 -0.003  (err=5106.821)
+match overlap: 99.7%
+optimum rotation:	-0.004 -0.001 -0.003  (err=5106.821/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/11.9ms/1.0ms/0.0ms/0.0ms/12.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 215.8
+
+doing frame 8
+initial guess:		-0.004 -0.000 -0.003
+initial minimisation:	-0.004 -0.000 -0.004  (err=5257.636)
+match overlap: 99.7%
+optimum rotation:	-0.004 -0.000 -0.004  (err=5257.636/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/11.9ms/1.0ms/0.0ms/0.0ms/12.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 198.1
+
+doing frame 9
+initial guess:		-0.004 -0.000 -0.004
+initial minimisation:	-0.002 -0.000 -0.003  (err=5316.946)
+match overlap: 99.9%
+optimum rotation:	-0.002 -0.000 -0.003  (err=5316.946/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.2ms/0.0ms/0.0ms/17.1ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 177.0
+
+doing frame 10
+initial guess:		-0.002 -0.000 -0.003
+initial minimisation:	-0.003 -0.000 -0.004  (err=5316.946)
+match overlap: 100.0%
+optimum rotation:	-0.003 -0.000 -0.004  (err=5316.946/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/15.1ms/0.0ms/1.0ms/0.0ms/16.1ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 162.0
+
+doing frame 11
+initial guess:		-0.003 -0.000 -0.004
+initial minimisation:	-0.003 -0.000 -0.004  (err=5699.070)
+match overlap: 99.8%
+optimum rotation:	-0.003 -0.000 -0.004  (err=5699.070/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/0.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 151.3
+
+doing frame 12
+initial guess:		-0.003 -0.000 -0.004
+initial minimisation:	-0.004 -0.000 -0.003  (err=6117.383)
+match overlap: 99.8%
+optimum rotation:	-0.004 -0.000 -0.003  (err=6117.383/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/0.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 143.3
+
+doing frame 13
+initial guess:		-0.004 -0.000 -0.003
+initial minimisation:	-0.001 0.000 -0.009  (err=6026.233)
+match overlap: 99.9%
+optimum rotation:	-0.001 0.000 -0.009  (err=6026.233/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 134.7
+
+doing frame 14
+initial guess:		-0.002 0.000 -0.009
+initial minimisation:	-0.003 -0.002 -0.008  (err=6598.350)
+match overlap: 99.9%
+optimum rotation:	-0.003 -0.002 -0.008  (err=6598.350/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 126.6
+
+doing frame 15
+initial guess:		-0.003 -0.002 -0.008
+initial minimisation:	-0.004 -0.001 -0.006  (err=6599.760)
+match overlap: 99.8%
+optimum rotation:	-0.004 -0.001 -0.006  (err=6599.760/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/0.0ms/1.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 119.0
+
+doing frame 16
+initial guess:		-0.004 -0.001 -0.007
+initial minimisation:	-0.004 0.001 -0.000  (err=6843.273)
+match overlap: 99.8%
+optimum rotation:	-0.004 0.001 -0.000  (err=6843.273/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/0.0ms/1.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 114.6
+
+doing frame 17
+initial guess:		-0.004 0.001 -0.001
+initial minimisation:	-0.006 -0.001 -0.001  (err=7007.184)
+match overlap: 99.8%
+optimum rotation:	-0.006 -0.001 -0.001  (err=7007.184/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 110.6
+
+doing frame 18
+initial guess:		-0.006 -0.000 -0.001
+initial minimisation:	-0.012 -0.001 -0.003  (err=7401.901)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.001 -0.003  (err=7401.901/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 105.5
+
+doing frame 19
+initial guess:		-0.011 -0.001 -0.003
+initial minimisation:	-0.010 0.000 -0.002  (err=8218.825)
+match overlap: 99.4%
+optimum rotation:	-0.010 0.000 -0.002  (err=8218.825/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 101.0
+
+doing frame 20
+initial guess:		-0.010 0.000 -0.002
+initial minimisation:	-0.007 -0.002 0.010  (err=8349.026)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.002 0.010  (err=8349.026/its=43)
+grab/test/save/draw/wait/total time: 0.0ms/20.9ms/1.0ms/39.3ms/0.0ms/61.2ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 80.2
+
+doing frame 21
+initial guess:		-0.007 -0.001 0.009
+initial minimisation:	-0.008 -0.001 0.008  (err=8336.895)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.001 0.008  (err=8336.895/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/11.0ms/0.0ms/0.0ms/0.0ms/11.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 80.7
+
+doing frame 22
+initial guess:		-0.008 -0.001 0.008
+initial minimisation:	-0.011 0.001 0.011  (err=8908.871)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.001 0.011  (err=8908.871/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 78.3
+
+doing frame 23
+initial guess:		-0.011 0.000 0.011
+initial minimisation:	-0.009 -0.002 0.010  (err=8906.961)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.002 0.010  (err=8906.961/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 79.1
+
+doing frame 24
+initial guess:		-0.009 -0.001 0.010
+initial minimisation:	-0.009 -0.001 0.010  (err=9225.579)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.001 0.010  (err=9225.579/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 80.0
+
+doing frame 25
+initial guess:		-0.009 -0.001 0.010
+initial minimisation:	-0.009 -0.002 0.012  (err=9499.909)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.002 0.012  (err=9499.909/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 77.6
+
+doing frame 26
+initial guess:		-0.009 -0.002 0.012
+initial minimisation:	-0.009 0.004 0.015  (err=9897.832)
+match overlap: 99.7%
+optimum rotation:	-0.009 0.004 0.015  (err=9897.832/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 75.5
+
+doing frame 27
+initial guess:		-0.009 0.004 0.014
+initial minimisation:	-0.009 -0.003 0.009  (err=9506.334)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.003 0.009  (err=9506.334/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 76.5
+
+doing frame 28
+initial guess:		-0.009 -0.002 0.010
+initial minimisation:	-0.008 -0.000 0.008  (err=9464.255)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.000 0.008  (err=9464.255/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 74.5
+
+doing frame 29
+initial guess:		-0.008 -0.000 0.009
+initial minimisation:	-0.005 0.001 0.014  (err=9654.974)
+match overlap: 99.7%
+optimum rotation:	-0.005 0.001 0.014  (err=9654.974/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 75.5
+
+doing frame 30
+initial guess:		-0.005 0.001 0.014
+initial minimisation:	-0.008 0.003 0.005  (err=10077.624)
+match overlap: 99.8%
+optimum rotation:	-0.008 0.003 0.005  (err=10077.624/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 73.6
+
+doing frame 31
+initial guess:		-0.008 0.002 0.006
+initial minimisation:	-0.048 0.001 -0.055  (err=11461.699)
+match overlap: 98.4%
+optimum rotation:	-0.048 0.001 -0.055  (err=11461.699/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/10.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 71.9
+
+doing frame 32
+initial guess:		-0.044 0.001 -0.049
+initial minimisation:	-0.001 0.000 -0.016  (err=11254.862)
+match overlap: 99.7%
+optimum rotation:	-0.001 0.000 -0.016  (err=11254.862/its=44)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 70.4
+
+doing frame 33
+initial guess:		-0.005 0.000 -0.020
+initial minimisation:	-0.012 -0.008 -0.030  (err=12147.681)
+match overlap: 99.4%
+optimum rotation:	-0.012 -0.008 -0.030  (err=12147.681/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 71.4
+
+doing frame 34
+initial guess:		-0.012 -0.007 -0.029
+initial minimisation:	-0.013 0.003 -0.024  (err=12142.466)
+match overlap: 99.5%
+optimum rotation:	-0.013 0.003 -0.024  (err=12142.466/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 69.9
+
+doing frame 35
+initial guess:		-0.013 0.002 -0.024
+initial minimisation:	-0.006 0.004 -0.021  (err=11947.909)
+match overlap: 99.7%
+optimum rotation:	-0.006 0.004 -0.021  (err=11947.909/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 68.6
+
+doing frame 36
+initial guess:		-0.007 0.004 -0.021
+initial minimisation:	-0.003 -0.007 0.193  (err=10313.254)
+match overlap: 99.7%
+optimum rotation:	-0.003 -0.007 0.193  (err=10313.254/its=47)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 67.3
+
+doing frame 37
+initial guess:		-0.003 -0.006 0.172
+initial minimisation:	-0.004 -0.002 -0.056  (err=9227.741)
+match overlap: 99.8%
+optimum rotation:	-0.004 -0.002 -0.056  (err=9227.741/its=41)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 66.2
+
+doing frame 38
+initial guess:		-0.004 -0.002 -0.033
+initial minimisation:	-0.015 0.002 -0.013  (err=8893.023)
+match overlap: 99.6%
+optimum rotation:	-0.015 0.002 -0.013  (err=8893.023/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 65.1
+
+doing frame 39
+initial guess:		-0.014 0.002 -0.015
+initial minimisation:	-0.013 0.000 -0.018  (err=8778.863)
+match overlap: 99.4%
+optimum rotation:	-0.013 0.000 -0.018  (err=8778.863/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 64.1
+
+doing frame 40
+initial guess:		-0.013 0.000 -0.018
+initial minimisation:	-0.006 0.001 -0.026  (err=9054.818)
+match overlap: 99.7%
+optimum rotation:	-0.006 0.001 -0.026  (err=9054.818/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/20.0ms/0.0ms/30.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.3
+
+doing frame 41
+initial guess:		-0.007 0.001 -0.025
+initial minimisation:	-0.012 0.002 -0.021  (err=9571.925)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.002 -0.021  (err=9571.925/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 62.5
+
+doing frame 42
+initial guess:		-0.012 0.002 -0.021
+initial minimisation:	-0.013 0.002 -0.021  (err=9867.498)
+match overlap: 99.5%
+optimum rotation:	-0.013 0.002 -0.021  (err=9867.498/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.7
+
+doing frame 43
+initial guess:		-0.013 0.002 -0.021
+initial minimisation:	-0.011 0.001 -0.019  (err=10588.710)
+match overlap: 99.4%
+optimum rotation:	-0.011 0.001 -0.019  (err=10588.710/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 63.0
+
+doing frame 44
+initial guess:		-0.011 0.001 -0.019
+initial minimisation:	-0.010 0.000 -0.017  (err=10292.027)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.000 -0.017  (err=10292.027/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 62.1
+
+doing frame 45
+initial guess:		-0.010 0.000 -0.017
+initial minimisation:	-0.009 -0.001 -0.008  (err=9958.909)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.001 -0.008  (err=9958.909/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.4
+
+doing frame 46
+initial guess:		-0.009 -0.001 -0.009
+initial minimisation:	-0.012 -0.000 -0.008  (err=10095.142)
+match overlap: 99.4%
+optimum rotation:	-0.012 -0.000 -0.008  (err=10095.142/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 62.6
+
+doing frame 47
+initial guess:		-0.011 -0.000 -0.008
+initial minimisation:	-0.014 0.000 -0.008  (err=10149.700)
+match overlap: 99.6%
+optimum rotation:	-0.014 0.000 -0.008  (err=10149.700/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.8
+
+doing frame 48
+initial guess:		-0.013 -0.000 -0.008
+initial minimisation:	-0.014 0.001 -0.007  (err=9790.815)
+match overlap: 99.3%
+optimum rotation:	-0.014 0.001 -0.007  (err=9790.815/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.1
+
+doing frame 49
+initial guess:		-0.014 0.001 -0.007
+initial minimisation:	-0.011 -0.002 -0.001  (err=9629.210)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.002 -0.001  (err=9629.210/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.4
+
+doing frame 50
+initial guess:		-0.011 -0.001 -0.001
+initial minimisation:	-0.011 -0.001 0.005  (err=9365.052)
+match overlap: 99.4%
+optimum rotation:	-0.011 -0.001 0.005  (err=9365.052/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.7
+
+doing frame 51
+initial guess:		-0.011 -0.001 0.004
+initial minimisation:	-0.014 -0.003 0.001  (err=9450.579)
+match overlap: 99.6%
+optimum rotation:	-0.014 -0.003 0.001  (err=9450.579/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.9
+
+doing frame 52
+initial guess:		-0.013 -0.003 0.001
+initial minimisation:	-0.009 -0.001 0.025  (err=9887.822)
+match overlap: 99.4%
+optimum rotation:	-0.009 -0.001 0.025  (err=9887.822/its=41)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.3
+
+doing frame 53
+initial guess:		-0.010 -0.001 0.022
+initial minimisation:	-0.010 -0.001 0.022  (err=9470.336)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.001 0.022  (err=9470.336/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.5
+
+doing frame 54
+initial guess:		-0.010 -0.001 0.022
+initial minimisation:	-0.005 -0.001 0.003  (err=8727.442)
+match overlap: 99.8%
+optimum rotation:	-0.005 -0.001 0.003  (err=8727.442/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.8
+
+doing frame 55
+initial guess:		-0.006 -0.001 0.005
+initial minimisation:	-0.009 0.004 0.012  (err=8260.460)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.004 0.012  (err=8260.460/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.2
+
+doing frame 56
+initial guess:		-0.009 0.004 0.011
+initial minimisation:	-0.008 0.004 0.017  (err=8382.238)
+match overlap: 99.6%
+optimum rotation:	-0.008 0.004 0.017  (err=8382.238/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.4
+
+doing frame 57
+initial guess:		-0.008 0.004 0.017
+initial minimisation:	-0.008 -0.006 0.017  (err=7816.909)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.006 0.017  (err=7816.909/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.7
+
+doing frame 58
+initial guess:		-0.008 -0.005 0.017
+initial minimisation:	-0.007 -0.002 -0.008  (err=7804.669)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.002 -0.008  (err=7804.669/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.1
+
+doing frame 59
+initial guess:		-0.007 -0.002 -0.005
+initial minimisation:	-0.006 -0.003 -0.008  (err=7996.017)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.003 -0.008  (err=7996.017/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.3
+
+doing frame 60
+initial guess:		-0.007 -0.003 -0.007
+initial minimisation:	-0.013 -0.000 0.001  (err=8028.640)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.000 0.001  (err=8028.640/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/30.0ms/0.0ms/50.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.5
+
+doing frame 61
+initial guess:		-0.012 -0.000 0.000
+initial minimisation:	-0.008 0.006 0.003  (err=8117.682)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.006 0.003  (err=8117.682/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 62
+initial guess:		-0.009 0.005 0.002
+initial minimisation:	-0.011 -0.003 0.010  (err=7378.427)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.003 0.010  (err=7378.427/its=43)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 63
+initial guess:		-0.011 -0.002 0.010
+initial minimisation:	-0.011 -0.002 0.016  (err=7432.624)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.002 0.016  (err=7432.624/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 64
+initial guess:		-0.011 -0.002 0.015
+initial minimisation:	-0.008 -0.001 0.007  (err=7265.208)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.001 0.007  (err=7265.208/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.7
+
+doing frame 65
+initial guess:		-0.008 -0.002 0.008
+initial minimisation:	-0.011 -0.001 0.003  (err=7217.259)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 0.003  (err=7217.259/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.0
+
+doing frame 66
+initial guess:		-0.011 -0.001 0.003
+initial minimisation:	-0.011 -0.001 0.004  (err=6728.165)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.001 0.004  (err=6728.165/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.6
+
+doing frame 67
+initial guess:		-0.011 -0.001 0.003
+initial minimisation:	-0.001 0.003 0.018  (err=6974.904)
+match overlap: 99.8%
+optimum rotation:	-0.001 0.003 0.018  (err=6974.904/its=40)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 68
+initial guess:		-0.002 0.002 0.016
+initial minimisation:	-0.011 -0.000 0.022  (err=7000.765)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.000 0.022  (err=7000.765/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.9
+
+doing frame 69
+initial guess:		-0.010 -0.000 0.022
+initial minimisation:	-0.012 -0.000 0.020  (err=7079.447)
+match overlap: 99.6%
+optimum rotation:	-0.012 -0.000 0.020  (err=7079.447/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 70
+initial guess:		-0.012 -0.000 0.020
+initial minimisation:	-0.014 -0.002 0.001  (err=6584.987)
+match overlap: 99.3%
+optimum rotation:	-0.014 -0.002 0.001  (err=6584.987/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 71
+initial guess:		-0.014 -0.002 0.003
+initial minimisation:	-0.014 -0.002 -0.003  (err=7017.687)
+match overlap: 99.6%
+optimum rotation:	-0.014 -0.002 -0.003  (err=7017.687/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 72
+initial guess:		-0.014 -0.002 -0.003
+initial minimisation:	-0.010 0.003 -0.015  (err=6660.280)
+match overlap: 99.4%
+optimum rotation:	-0.010 0.003 -0.015  (err=6660.280/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.6
+
+doing frame 73
+initial guess:		-0.010 0.002 -0.014
+initial minimisation:	-0.012 -0.001 -0.005  (err=7118.204)
+match overlap: 99.6%
+optimum rotation:	-0.012 -0.001 -0.005  (err=7118.204/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 74
+initial guess:		-0.012 -0.001 -0.006
+initial minimisation:	-0.010 -0.001 -0.007  (err=7166.134)
+match overlap: 99.5%
+optimum rotation:	-0.010 -0.001 -0.007  (err=7166.134/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 75
+initial guess:		-0.010 -0.001 -0.007
+initial minimisation:	-0.010 -0.002 -0.007  (err=7403.491)
+match overlap: 99.4%
+optimum rotation:	-0.010 -0.002 -0.007  (err=7403.491/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 76
+initial guess:		-0.010 -0.002 -0.007
+initial minimisation:	-0.009 0.000 0.013  (err=7396.472)
+match overlap: 99.8%
+optimum rotation:	-0.009 0.000 0.013  (err=7396.472/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.6
+
+doing frame 77
+initial guess:		-0.009 -0.000 0.011
+initial minimisation:	-0.012 -0.000 0.017  (err=7313.223)
+match overlap: 99.6%
+optimum rotation:	-0.012 -0.000 0.017  (err=7313.223/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/24.9ms/1.0ms/0.0ms/0.0ms/25.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 78
+initial guess:		-0.012 -0.000 0.017
+initial minimisation:	-0.012 0.000 0.023  (err=7707.494)
+match overlap: 99.4%
+optimum rotation:	-0.012 0.000 0.023  (err=7707.494/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 79
+initial guess:		-0.012 0.000 0.022
+initial minimisation:	-0.007 -0.002 0.008  (err=7560.723)
+match overlap: 99.6%
+optimum rotation:	-0.007 -0.002 0.008  (err=7560.723/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.0
+
+doing frame 80
+initial guess:		-0.008 -0.002 0.009
+initial minimisation:	-0.010 0.000 -0.015  (err=7780.174)
+match overlap: 99.7%
+optimum rotation:	-0.010 0.000 -0.015  (err=7780.174/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/16.2ms/0.0ms/20.0ms/0.0ms/36.2ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.1
+
+doing frame 81
+initial guess:		-0.010 0.000 -0.012
+initial minimisation:	-0.008 0.000 -0.005  (err=7645.904)
+match overlap: 99.6%
+optimum rotation:	-0.008 0.000 -0.005  (err=7645.904/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.4
+
+doing frame 82
+initial guess:		-0.008 0.000 -0.006
+initial minimisation:	-0.012 -0.000 0.002  (err=8121.148)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.000 0.002  (err=8121.148/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.1
+
+doing frame 83
+initial guess:		-0.012 -0.000 0.001
+initial minimisation:	-0.008 0.001 0.006  (err=8091.567)
+match overlap: 99.6%
+optimum rotation:	-0.008 0.001 0.006  (err=8091.567/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 84
+initial guess:		-0.009 0.001 0.006
+initial minimisation:	-0.009 0.000 0.005  (err=8312.302)
+match overlap: 99.8%
+optimum rotation:	-0.009 0.000 0.005  (err=8312.302/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.0
+
+doing frame 85
+initial guess:		-0.009 0.000 0.005
+initial minimisation:	-0.011 -0.000 -0.001  (err=7831.987)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.000 -0.001  (err=7831.987/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/22.8ms/1.0ms/0.0ms/0.0ms/23.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.1
+
+doing frame 86
+initial guess:		-0.011 -0.000 -0.000
+initial minimisation:	-0.011 -0.000 0.006  (err=8096.769)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.000 0.006  (err=8096.769/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 87
+initial guess:		-0.011 -0.000 0.005
+initial minimisation:	-0.004 -0.000 0.007  (err=7697.404)
+match overlap: 99.8%
+optimum rotation:	-0.004 -0.000 0.007  (err=7697.404/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 88
+initial guess:		-0.005 -0.000 0.007
+initial minimisation:	-0.013 -0.002 0.004  (err=7820.876)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.002 0.004  (err=7820.876/its=41)
+grab/test/save/draw/wait/total time: 0.0ms/13.3ms/0.0ms/0.0ms/0.0ms/13.3ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 89
+initial guess:		-0.012 -0.002 0.004
+initial minimisation:	-0.010 -0.001 0.008  (err=7994.078)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.001 0.008  (err=7994.078/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.0
+
+doing frame 90
+initial guess:		-0.010 -0.001 0.007
+initial minimisation:	-0.005 -0.000 0.016  (err=7518.385)
+match overlap: 99.8%
+optimum rotation:	-0.005 -0.000 0.016  (err=7518.385/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 91
+initial guess:		-0.006 -0.000 0.015
+initial minimisation:	-0.018 0.001 0.014  (err=8060.027)
+match overlap: 99.4%
+optimum rotation:	-0.018 0.001 0.014  (err=8060.027/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 92
+initial guess:		-0.017 0.001 0.014
+initial minimisation:	-0.006 0.002 -0.007  (err=7804.115)
+match overlap: 99.6%
+optimum rotation:	-0.006 0.002 -0.007  (err=7804.115/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 93
+initial guess:		-0.007 0.002 -0.005
+initial minimisation:	-0.009 -0.001 -0.003  (err=7772.911)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.001 -0.003  (err=7772.911/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 94
+initial guess:		-0.009 -0.001 -0.004
+initial minimisation:	-0.011 -0.001 0.002  (err=7677.046)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 0.002  (err=7677.046/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.3
+
+doing frame 95
+initial guess:		-0.011 -0.001 0.001
+initial minimisation:	-0.006 -0.002 0.008  (err=7164.830)
+match overlap: 99.9%
+optimum rotation:	-0.006 -0.002 0.008  (err=7164.830/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.6
+
+doing frame 96
+initial guess:		-0.006 -0.002 0.007
+initial minimisation:	-0.010 0.004 0.002  (err=7899.581)
+match overlap: 99.5%
+optimum rotation:	-0.010 0.004 0.002  (err=7899.581/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.1
+
+doing frame 97
+initial guess:		-0.010 0.004 0.002
+initial minimisation:	-0.007 -0.005 0.001  (err=7509.851)
+match overlap: 99.6%
+optimum rotation:	-0.007 -0.005 0.001  (err=7509.851/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.6
+
+doing frame 98
+initial guess:		-0.007 -0.004 0.001
+initial minimisation:	-0.017 0.002 0.006  (err=7932.603)
+match overlap: 99.4%
+optimum rotation:	-0.017 0.002 0.006  (err=7932.603/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.8
+
+doing frame 99
+initial guess:		-0.016 0.002 0.005
+initial minimisation:	-0.005 0.000 0.041  (err=7658.191)
+match overlap: 99.7%
+optimum rotation:	-0.005 0.000 0.041  (err=7658.191/its=40)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 100
+initial guess:		-0.006 0.001 0.037
+initial minimisation:	-0.009 -0.002 0.037  (err=7797.430)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.002 0.037  (err=7797.430/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/10.0ms/0.0ms/30.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 101
+initial guess:		-0.009 -0.001 0.037
+initial minimisation:	-0.011 0.000 0.034  (err=8425.814)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.000 0.034  (err=8425.814/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 102
+initial guess:		-0.011 -0.000 0.034
+initial minimisation:	-0.012 -0.002 0.029  (err=8724.909)
+match overlap: 99.4%
+optimum rotation:	-0.012 -0.002 0.029  (err=8724.909/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 103
+initial guess:		-0.012 -0.002 0.030
+initial minimisation:	-0.006 0.000 -0.010  (err=8227.143)
+match overlap: 99.8%
+optimum rotation:	-0.006 0.000 -0.010  (err=8227.143/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 104
+initial guess:		-0.006 -0.000 -0.006
+initial minimisation:	-0.006 -0.000 -0.006  (err=7943.790)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.000 -0.006  (err=7943.790/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 105
+initial guess:		-0.006 -0.000 -0.006
+initial minimisation:	-0.009 0.003 -0.014  (err=7290.048)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.003 -0.014  (err=7290.048/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 106
+initial guess:		-0.009 0.002 -0.013
+initial minimisation:	-0.012 -0.002 -0.005  (err=7443.376)
+match overlap: 99.6%
+optimum rotation:	-0.012 -0.002 -0.005  (err=7443.376/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.0
+
+doing frame 107
+initial guess:		-0.012 -0.001 -0.006
+initial minimisation:	-0.012 0.003 -0.010  (err=7746.056)
+match overlap: 99.5%
+optimum rotation:	-0.012 0.003 -0.010  (err=7746.056/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.6
+
+doing frame 108
+initial guess:		-0.012 0.002 -0.010
+initial minimisation:	-0.008 -0.003 0.027  (err=7708.215)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.003 0.027  (err=7708.215/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 109
+initial guess:		-0.009 -0.002 0.024
+initial minimisation:	-0.006 -0.002 0.019  (err=7790.757)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.002 0.019  (err=7790.757/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 110
+initial guess:		-0.006 -0.002 0.020
+initial minimisation:	-0.008 0.002 0.014  (err=7762.933)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.002 0.014  (err=7762.933/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 111
+initial guess:		-0.008 0.002 0.014
+initial minimisation:	-0.019 -0.003 0.018  (err=8770.554)
+match overlap: 99.5%
+optimum rotation:	-0.019 -0.003 0.018  (err=8770.554/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 112
+initial guess:		-0.018 -0.003 0.018
+initial minimisation:	-0.012 -0.003 0.028  (err=8955.957)
+match overlap: 99.4%
+optimum rotation:	-0.012 -0.003 0.028  (err=8955.957/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 113
+initial guess:		-0.013 -0.003 0.027
+initial minimisation:	-0.004 -0.003 0.036  (err=9623.533)
+match overlap: 99.7%
+optimum rotation:	-0.004 -0.003 0.036  (err=9623.533/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 114
+initial guess:		-0.005 -0.003 0.035
+initial minimisation:	-0.015 0.004 -0.027  (err=9231.427)
+match overlap: 99.4%
+optimum rotation:	-0.015 0.004 -0.027  (err=9231.427/its=49)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 115
+initial guess:		-0.014 0.003 -0.020
+initial minimisation:	-0.011 0.004 -0.013  (err=8900.654)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.004 -0.013  (err=8900.654/its=26)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 116
+initial guess:		-0.011 0.004 -0.014
+initial minimisation:	-0.011 -0.001 -0.016  (err=8391.674)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.001 -0.016  (err=8391.674/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 117
+initial guess:		-0.011 -0.001 -0.016
+initial minimisation:	-0.010 0.004 -0.010  (err=8382.674)
+match overlap: 99.5%
+optimum rotation:	-0.010 0.004 -0.010  (err=8382.674/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 118
+initial guess:		-0.010 0.003 -0.011
+initial minimisation:	-0.010 0.005 -0.004  (err=8789.047)
+match overlap: 99.5%
+optimum rotation:	-0.010 0.005 -0.004  (err=8789.047/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.7
+
+doing frame 119
+initial guess:		-0.010 0.005 -0.005
+initial minimisation:	-0.015 -0.002 0.003  (err=8182.231)
+match overlap: 99.5%
+optimum rotation:	-0.015 -0.002 0.003  (err=8182.231/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.2
+
+doing frame 120
+initial guess:		-0.014 -0.001 0.002
+initial minimisation:	-0.009 0.002 0.001  (err=8103.716)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.002 0.001  (err=8103.716/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/30.0ms/0.0ms/40.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.6
+
+doing frame 121
+initial guess:		-0.010 0.002 0.001
+initial minimisation:	-0.010 0.002 0.001  (err=8425.814)
+match overlap: 99.7%
+optimum rotation:	-0.010 0.002 0.001  (err=8425.814/its=26)
+grab/test/save/draw/wait/total time: 0.0ms/12.2ms/1.0ms/0.0ms/0.0ms/13.2ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.4
+
+doing frame 122
+initial guess:		-0.010 0.002 0.001
+initial minimisation:	-0.014 -0.003 0.019  (err=8555.554)
+match overlap: 99.5%
+optimum rotation:	-0.014 -0.003 0.019  (err=8555.554/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.7
+
+doing frame 123
+initial guess:		-0.014 -0.002 0.017
+initial minimisation:	-0.007 -0.002 0.020  (err=7553.268)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.002 0.020  (err=7553.268/its=43)
+grab/test/save/draw/wait/total time: 0.0ms/20.9ms/1.0ms/0.0ms/0.0ms/21.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.1
+
+doing frame 124
+initial guess:		-0.007 -0.002 0.020
+initial minimisation:	-0.012 -0.000 0.022  (err=8223.955)
+match overlap: 99.6%
+optimum rotation:	-0.012 -0.000 0.022  (err=8223.955/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.4
+
+doing frame 125
+initial guess:		-0.011 -0.001 0.021
+initial minimisation:	-0.010 -0.000 0.014  (err=8030.532)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.000 0.014  (err=8030.532/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 126
+initial guess:		-0.011 -0.000 0.015
+initial minimisation:	-0.010 -0.005 0.020  (err=8347.616)
+match overlap: 99.7%
+optimum rotation:	-0.010 -0.005 0.020  (err=8347.616/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 127
+initial guess:		-0.010 -0.004 0.019
+initial minimisation:	-0.009 -0.004 0.012  (err=8417.295)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.004 0.012  (err=8417.295/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 128
+initial guess:		-0.009 -0.004 0.013
+initial minimisation:	-0.014 0.006 0.001  (err=8377.711)
+match overlap: 99.6%
+optimum rotation:	-0.014 0.006 0.001  (err=8377.711/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.6
+
+doing frame 129
+initial guess:		-0.014 0.005 0.002
+initial minimisation:	-0.009 0.003 -0.009  (err=7823.081)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.003 -0.009  (err=7823.081/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 130
+initial guess:		-0.010 0.003 -0.008
+initial minimisation:	-0.009 -0.001 -0.007  (err=7986.994)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.001 -0.007  (err=7986.994/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 131
+initial guess:		-0.009 -0.001 -0.007
+initial minimisation:	-0.012 -0.006 0.004  (err=8382.674)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.006 0.004  (err=8382.674/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 132
+initial guess:		-0.012 -0.006 0.003
+initial minimisation:	-0.008 0.005 0.013  (err=8068.897)
+match overlap: 99.6%
+optimum rotation:	-0.008 0.005 0.013  (err=8068.897/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/12.6ms/0.0ms/0.0ms/0.0ms/12.6ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 133
+initial guess:		-0.008 0.004 0.012
+initial minimisation:	-0.009 0.002 0.019  (err=8180.474)
+match overlap: 99.4%
+optimum rotation:	-0.009 0.002 0.019  (err=8180.474/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.2
+
+doing frame 134
+initial guess:		-0.009 0.002 0.018
+initial minimisation:	-0.019 -0.002 0.023  (err=8268.265)
+match overlap: 99.2%
+optimum rotation:	-0.019 -0.002 0.023  (err=8268.265/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.6
+
+doing frame 135
+initial guess:		-0.018 -0.002 0.023
+initial minimisation:	-0.008 -0.005 0.061  (err=9044.412)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.005 0.061  (err=9044.412/its=42)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.1
+
+doing frame 136
+initial guess:		-0.009 -0.004 0.057
+initial minimisation:	-0.009 -0.005 0.057  (err=10604.936)
+match overlap: 99.5%
+optimum rotation:	-0.009 -0.005 0.057  (err=10604.936/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 137
+initial guess:		-0.009 -0.005 0.057
+initial minimisation:	-0.004 0.017 -0.210  (err=10451.443)
+match overlap: 99.5%
+optimum rotation:	-0.004 0.017 -0.210  (err=10451.443/its=42)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 138
+initial guess:		-0.005 0.015 -0.183
+initial minimisation:	-0.008 -0.003 0.086  (err=8863.245)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.003 0.086  (err=8863.245/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 139
+initial guess:		-0.008 -0.001 0.059
+initial minimisation:	-0.006 -0.005 0.049  (err=8690.426)
+match overlap: 99.6%
+optimum rotation:	-0.006 -0.005 0.049  (err=8690.426/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/10.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 140
+initial guess:		-0.007 -0.005 0.050
+initial minimisation:	-0.020 -0.001 0.032  (err=8856.251)
+match overlap: 99.4%
+optimum rotation:	-0.020 -0.001 0.032  (err=8856.251/its=40)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/20.0ms/0.0ms/30.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.5
+
+doing frame 141
+initial guess:		-0.018 -0.002 0.034
+initial minimisation:	-0.002 -0.006 0.013  (err=8871.477)
+match overlap: 99.6%
+optimum rotation:	-0.002 -0.006 0.013  (err=8871.477/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.8
+
+doing frame 142
+initial guess:		-0.003 -0.005 0.015
+initial minimisation:	-0.006 0.000 -0.014  (err=8288.319)
+match overlap: 99.6%
+optimum rotation:	-0.006 0.000 -0.014  (err=8288.319/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.5
+
+doing frame 143
+initial guess:		-0.006 -0.000 -0.011
+initial minimisation:	-0.012 0.001 -0.016  (err=8000.932)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.001 -0.016  (err=8000.932/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.2
+
+doing frame 144
+initial guess:		-0.011 0.001 -0.015
+initial minimisation:	-0.005 0.002 -0.014  (err=8042.895)
+match overlap: 99.7%
+optimum rotation:	-0.005 0.002 -0.014  (err=8042.895/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 145
+initial guess:		-0.006 0.002 -0.015
+initial minimisation:	-0.018 -0.001 -0.002  (err=8248.503)
+match overlap: 99.5%
+optimum rotation:	-0.018 -0.001 -0.002  (err=8248.503/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 146
+initial guess:		-0.017 -0.000 -0.003
+initial minimisation:	-0.010 -0.003 0.004  (err=8493.630)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.003 0.004  (err=8493.630/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.7
+
+doing frame 147
+initial guess:		-0.010 -0.002 0.004
+initial minimisation:	-0.004 -0.001 0.009  (err=8301.951)
+match overlap: 99.8%
+optimum rotation:	-0.004 -0.001 0.009  (err=8301.951/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.0
+
+doing frame 148
+initial guess:		-0.005 -0.001 0.009
+initial minimisation:	-0.011 -0.001 0.022  (err=8310.838)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.001 0.022  (err=8310.838/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.6
+
+doing frame 149
+initial guess:		-0.011 -0.001 0.021
+initial minimisation:	-0.013 -0.002 0.009  (err=8019.843)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.002 0.009  (err=8019.843/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 150
+initial guess:		-0.013 -0.002 0.010
+initial minimisation:	-0.009 0.000 0.011  (err=7867.050)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.000 0.011  (err=7867.050/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 151
+initial guess:		-0.009 0.000 0.011
+initial minimisation:	-0.013 -0.001 0.013  (err=8377.283)
+match overlap: 99.6%
+optimum rotation:	-0.013 -0.001 0.013  (err=8377.283/its=40)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 152
+initial guess:		-0.012 -0.001 0.012
+initial minimisation:	-0.010 0.001 0.009  (err=8190.810)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.001 0.009  (err=8190.810/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 153
+initial guess:		-0.010 0.000 0.009
+initial minimisation:	-0.010 0.002 0.005  (err=8162.950)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.002 0.005  (err=8162.950/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 154
+initial guess:		-0.010 0.002 0.006
+initial minimisation:	-0.013 0.001 0.012  (err=8283.528)
+match overlap: 99.4%
+optimum rotation:	-0.013 0.001 0.012  (err=8283.528/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.9
+
+doing frame 155
+initial guess:		-0.012 0.001 0.011
+initial minimisation:	-0.007 -0.006 -0.003  (err=8607.886)
+match overlap: 99.8%
+optimum rotation:	-0.007 -0.006 -0.003  (err=8607.886/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 156
+initial guess:		-0.007 -0.005 -0.001
+initial minimisation:	-0.007 -0.004 -0.006  (err=8195.961)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.004 -0.006  (err=8195.961/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 157
+initial guess:		-0.007 -0.004 -0.006
+initial minimisation:	-0.009 0.009 0.001  (err=7917.299)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.009 0.001  (err=7917.299/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 158
+initial guess:		-0.009 0.008 0.001
+initial minimisation:	-0.014 -0.006 0.011  (err=7798.536)
+match overlap: 99.5%
+optimum rotation:	-0.014 -0.006 0.011  (err=7798.536/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 159
+initial guess:		-0.013 -0.005 0.010
+initial minimisation:	-0.010 0.003 0.017  (err=7522.172)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.003 0.017  (err=7522.172/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 160
+initial guess:		-0.010 0.002 0.016
+initial minimisation:	-0.011 -0.000 0.027  (err=7232.727)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.000 0.027  (err=7232.727/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/20.0ms/0.0ms/40.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.8
+
+doing frame 161
+initial guess:		-0.011 0.000 0.026
+initial minimisation:	-0.011 0.000 0.026  (err=7285.363)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.000 0.026  (err=7285.363/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.0
+
+doing frame 162
+initial guess:		-0.011 0.000 0.026
+initial minimisation:	-0.011 0.001 0.026  (err=7603.224)
+match overlap: 99.5%
+optimum rotation:	-0.011 0.001 0.026  (err=7603.224/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 163
+initial guess:		-0.011 0.001 0.026
+initial minimisation:	-0.011 0.000 0.027  (err=7826.954)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.000 0.027  (err=7826.954/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.0
+
+doing frame 164
+initial guess:		-0.011 0.000 0.027
+initial minimisation:	-0.013 -0.000 0.025  (err=7767.301)
+match overlap: 99.5%
+optimum rotation:	-0.013 -0.000 0.025  (err=7767.301/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/10.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 165
+initial guess:		-0.013 -0.000 0.025
+initial minimisation:	-0.013 -0.000 0.016  (err=8052.978)
+match overlap: 99.3%
+optimum rotation:	-0.013 -0.000 0.016  (err=8052.978/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 166
+initial guess:		-0.013 -0.000 0.017
+initial minimisation:	-0.010 0.001 0.011  (err=8105.494)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.001 0.011  (err=8105.494/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 167
+initial guess:		-0.010 0.001 0.012
+initial minimisation:	-0.010 -0.000 0.011  (err=8526.955)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.000 0.011  (err=8526.955/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 168
+initial guess:		-0.010 0.000 0.011
+initial minimisation:	-0.014 -0.004 0.001  (err=8688.625)
+match overlap: 99.4%
+optimum rotation:	-0.014 -0.004 0.001  (err=8688.625/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.3
+
+doing frame 169
+initial guess:		-0.014 -0.003 0.002
+initial minimisation:	-0.004 0.002 -0.005  (err=8124.647)
+match overlap: 99.8%
+optimum rotation:	-0.004 0.002 -0.005  (err=8124.647/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 170
+initial guess:		-0.005 0.001 -0.004
+initial minimisation:	-0.005 0.002 -0.003  (err=8569.833)
+match overlap: 99.7%
+optimum rotation:	-0.005 0.002 -0.003  (err=8569.833/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 171
+initial guess:		-0.005 0.002 -0.003
+initial minimisation:	-0.028 -0.001 -0.008  (err=9000.437)
+match overlap: 99.0%
+optimum rotation:	-0.028 -0.001 -0.008  (err=9000.437/its=17)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 172
+initial guess:		-0.025 -0.001 -0.008
+initial minimisation:	-0.004 -0.001 -0.012  (err=9229.624)
+match overlap: 99.7%
+optimum rotation:	-0.004 -0.001 -0.012  (err=9229.624/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.3
+
+doing frame 173
+initial guess:		-0.006 -0.001 -0.012
+initial minimisation:	-0.009 0.000 -0.003  (err=9169.835)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.000 -0.003  (err=9169.835/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.6
+
+doing frame 174
+initial guess:		-0.009 0.000 -0.004
+initial minimisation:	-0.008 0.002 -0.001  (err=9150.225)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.002 -0.001  (err=9150.225/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.1
+
+doing frame 175
+initial guess:		-0.008 0.002 -0.001
+initial minimisation:	-0.009 0.000 0.005  (err=8760.061)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.000 0.005  (err=8760.061/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.6
+
+doing frame 176
+initial guess:		-0.009 0.000 0.005
+initial minimisation:	-0.009 -0.005 0.008  (err=9213.617)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.005 0.008  (err=9213.617/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.9
+
+doing frame 177
+initial guess:		-0.009 -0.004 0.007
+initial minimisation:	-0.012 0.000 0.008  (err=9114.091)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.000 0.008  (err=9114.091/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 178
+initial guess:		-0.011 -0.000 0.008
+initial minimisation:	-0.010 -0.001 0.013  (err=9134.133)
+match overlap: 99.7%
+optimum rotation:	-0.010 -0.001 0.013  (err=9134.133/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 179
+initial guess:		-0.010 -0.001 0.013
+initial minimisation:	-0.010 -0.001 0.019  (err=8791.681)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.001 0.019  (err=8791.681/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.1
+
+doing frame 180
+initial guess:		-0.010 -0.001 0.018
+initial minimisation:	-0.011 -0.001 0.014  (err=8811.278)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 0.014  (err=8811.278/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/10.0ms/0.0ms/30.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 181
+initial guess:		-0.011 -0.001 0.014
+initial minimisation:	-0.012 -0.001 0.006  (err=8215.299)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.001 0.006  (err=8215.299/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.2
+
+doing frame 182
+initial guess:		-0.011 -0.001 0.007
+initial minimisation:	-0.006 0.002 0.009  (err=8364.327)
+match overlap: 99.8%
+optimum rotation:	-0.006 0.002 0.009  (err=8364.327/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 183
+initial guess:		-0.006 0.002 0.009
+initial minimisation:	-0.011 -0.001 0.015  (err=8077.553)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.001 0.015  (err=8077.553/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/10.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 184
+initial guess:		-0.010 -0.001 0.014
+initial minimisation:	-0.011 -0.001 0.014  (err=8030.699)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.001 0.014  (err=8030.699/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.5
+
+doing frame 185
+initial guess:		-0.011 -0.001 0.014
+initial minimisation:	-0.008 -0.002 0.012  (err=8312.618)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.002 0.012  (err=8312.618/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 186
+initial guess:		-0.008 -0.002 0.012
+initial minimisation:	-0.013 -0.002 0.008  (err=8026.916)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.002 0.008  (err=8026.916/its=43)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 187
+initial guess:		-0.013 -0.002 0.009
+initial minimisation:	-0.008 -0.001 0.005  (err=8359.364)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.001 0.005  (err=8359.364/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.8
+
+doing frame 188
+initial guess:		-0.009 -0.001 0.006
+initial minimisation:	-0.012 0.002 0.006  (err=7906.369)
+match overlap: 99.4%
+optimum rotation:	-0.012 0.002 0.006  (err=7906.369/its=30)
+grab/test/save/draw/wait/total time: 10.0ms/10.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 189
+initial guess:		-0.012 0.001 0.006
+initial minimisation:	-0.010 0.001 -0.005  (err=8471.223)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.001 -0.005  (err=8471.223/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 190
+initial guess:		-0.010 0.001 -0.004
+initial minimisation:	-0.010 0.000 -0.008  (err=8189.055)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.000 -0.008  (err=8189.055/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.0
+
+doing frame 191
+initial guess:		-0.010 0.000 -0.007
+initial minimisation:	-0.006 -0.001 0.006  (err=8404.686)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.001 0.006  (err=8404.686/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.5
+
+doing frame 192
+initial guess:		-0.007 -0.001 0.004
+initial minimisation:	-0.011 0.000 0.014  (err=8136.833)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.000 0.014  (err=8136.833/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 193
+initial guess:		-0.010 0.000 0.013
+initial minimisation:	-0.012 -0.001 0.011  (err=8422.711)
+match overlap: 99.6%
+optimum rotation:	-0.012 -0.001 0.011  (err=8422.711/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.6
+
+doing frame 194
+initial guess:		-0.012 -0.001 0.011
+initial minimisation:	-0.011 -0.001 0.011  (err=8253.602)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.001 0.011  (err=8253.602/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.8
+
+doing frame 195
+initial guess:		-0.011 -0.001 0.011
+initial minimisation:	-0.003 -0.000 -0.005  (err=8115.965)
+match overlap: 99.8%
+optimum rotation:	-0.003 -0.000 -0.005  (err=8115.965/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 196
+initial guess:		-0.004 -0.000 -0.003
+initial minimisation:	-0.013 -0.003 0.022  (err=7789.599)
+match overlap: 99.5%
+optimum rotation:	-0.013 -0.003 0.022  (err=7789.599/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.5
+
+doing frame 197
+initial guess:		-0.012 -0.002 0.020
+initial minimisation:	-0.012 0.000 0.020  (err=8110.705)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.000 0.020  (err=8110.705/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.0
+
+doing frame 198
+initial guess:		-0.012 0.000 0.020
+initial minimisation:	-0.012 -0.001 0.022  (err=8290.373)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.001 0.022  (err=8290.373/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.5
+
+doing frame 199
+initial guess:		-0.012 -0.001 0.021
+initial minimisation:	0.002 0.002 0.019  (err=8384.949)
+match overlap: 99.9%
+optimum rotation:	0.002 0.002 0.019  (err=8384.949/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.7
+
+doing frame 200
+initial guess:		0.000 0.002 0.019
+initial minimisation:	-0.014 0.001 -0.008  (err=7655.742)
+match overlap: 99.5%
+optimum rotation:	-0.014 0.001 -0.008  (err=7655.742/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/30.0ms/0.0ms/50.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.3
+
+doing frame 201
+initial guess:		-0.013 0.001 -0.005
+initial minimisation:	-0.010 0.001 -0.001  (err=8662.572)
+match overlap: 99.7%
+optimum rotation:	-0.010 0.001 -0.001  (err=8662.572/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 202
+initial guess:		-0.011 0.001 -0.001
+initial minimisation:	-0.004 0.001 0.004  (err=8291.312)
+match overlap: 99.9%
+optimum rotation:	-0.004 0.001 0.004  (err=8291.312/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.3
+
+doing frame 203
+initial guess:		-0.005 0.001 0.004
+initial minimisation:	-0.015 -0.003 0.023  (err=8628.048)
+match overlap: 99.4%
+optimum rotation:	-0.015 -0.003 0.023  (err=8628.048/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 204
+initial guess:		-0.014 -0.003 0.021
+initial minimisation:	-0.001 0.003 0.033  (err=9321.037)
+match overlap: 99.9%
+optimum rotation:	-0.001 0.003 0.033  (err=9321.037/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 205
+initial guess:		-0.003 0.002 0.032
+initial minimisation:	-0.012 -0.003 -0.028  (err=8415.985)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.003 -0.028  (err=8415.985/its=41)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.8
+
+doing frame 206
+initial guess:		-0.011 -0.002 -0.022
+initial minimisation:	-0.012 0.002 -0.021  (err=8506.380)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.002 -0.021  (err=8506.380/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.5
+
+doing frame 207
+initial guess:		-0.012 0.002 -0.021
+initial minimisation:	-0.009 -0.004 -0.010  (err=8847.413)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.004 -0.010  (err=8847.413/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.2
+
+doing frame 208
+initial guess:		-0.010 -0.003 -0.011
+initial minimisation:	-0.003 0.002 0.031  (err=8423.504)
+match overlap: 99.8%
+optimum rotation:	-0.003 0.002 0.031  (err=8423.504/its=42)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.9
+
+doing frame 209
+initial guess:		-0.004 0.002 0.027
+initial minimisation:	-0.009 -0.006 0.046  (err=8815.769)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.006 0.046  (err=8815.769/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 210
+initial guess:		-0.008 -0.005 0.044
+initial minimisation:	-0.011 0.009 -0.003  (err=8735.118)
+match overlap: 99.5%
+optimum rotation:	-0.011 0.009 -0.003  (err=8735.118/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.8
+
+doing frame 211
+initial guess:		-0.010 0.007 0.002
+initial minimisation:	-0.018 -0.009 0.046  (err=9329.188)
+match overlap: 99.4%
+optimum rotation:	-0.018 -0.009 0.046  (err=9329.188/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.5
+
+doing frame 212
+initial guess:		-0.017 -0.007 0.041
+initial minimisation:	-0.013 0.004 -0.004  (err=8954.033)
+match overlap: 99.4%
+optimum rotation:	-0.013 0.004 -0.004  (err=8954.033/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.2
+
+doing frame 213
+initial guess:		-0.013 0.003 0.001
+initial minimisation:	-0.011 -0.001 -0.004  (err=9134.133)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 -0.004  (err=9134.133/its=14)
+grab/test/save/draw/wait/total time: 0.0ms/0.0ms/0.0ms/0.0ms/0.0ms/0.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 214
+initial guess:		-0.011 -0.000 -0.003
+initial minimisation:	-0.004 0.002 0.001  (err=8030.865)
+match overlap: 99.9%
+optimum rotation:	-0.004 0.002 0.001  (err=8030.865/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 215
+initial guess:		-0.005 0.001 0.001
+initial minimisation:	-0.010 0.003 0.007  (err=8570.590)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.003 0.007  (err=8570.590/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 216
+initial guess:		-0.010 0.003 0.006
+initial minimisation:	-0.013 -0.010 0.005  (err=9275.317)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.010 0.005  (err=9275.317/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 217
+initial guess:		-0.012 -0.008 0.005
+initial minimisation:	-0.011 0.005 0.008  (err=8614.244)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.005 0.008  (err=8614.244/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 218
+initial guess:		-0.011 0.003 0.007
+initial minimisation:	-0.008 0.001 0.012  (err=8267.305)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.001 0.012  (err=8267.305/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.9
+
+doing frame 219
+initial guess:		-0.008 0.001 0.012
+initial minimisation:	-0.017 0.003 0.000  (err=8961.240)
+match overlap: 99.2%
+optimum rotation:	-0.017 0.003 0.000  (err=8961.240/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/18.1ms/0.0ms/1.0ms/0.0ms/19.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.8
+
+doing frame 220
+initial guess:		-0.017 0.002 0.001
+initial minimisation:	-0.007 -0.001 -0.002  (err=9104.612)
+match overlap: 99.8%
+optimum rotation:	-0.007 -0.001 -0.002  (err=9104.612/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/21.9ms/0.0ms/37.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.8
+
+doing frame 221
+initial guess:		-0.008 -0.001 -0.002
+initial minimisation:	-0.006 -0.001 0.005  (err=8897.425)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.001 0.005  (err=8897.425/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.2ms/0.0ms/0.0ms/0.0ms/10.2ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.1
+
+doing frame 222
+initial guess:		-0.006 -0.001 0.005
+initial minimisation:	-0.012 -0.001 0.013  (err=9044.044)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.001 0.013  (err=9044.044/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.8
+
+doing frame 223
+initial guess:		-0.011 -0.001 0.012
+initial minimisation:	-0.011 -0.001 0.018  (err=9239.515)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 0.018  (err=9239.515/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.1
+
+doing frame 224
+initial guess:		-0.011 -0.001 0.017
+initial minimisation:	0.002 -0.003 0.036  (err=8959.864)
+match overlap: 99.9%
+optimum rotation:	0.002 -0.003 0.036  (err=8959.864/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.8
+
+doing frame 225
+initial guess:		0.001 -0.003 0.034
+initial minimisation:	-0.015 0.004 -0.009  (err=9092.065)
+match overlap: 99.6%
+optimum rotation:	-0.015 0.004 -0.009  (err=9092.065/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.6
+
+doing frame 226
+initial guess:		-0.013 0.004 -0.005
+initial minimisation:	-0.012 -0.003 -0.003  (err=8731.371)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.003 -0.003  (err=8731.371/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.8
+
+doing frame 227
+initial guess:		-0.012 -0.002 -0.003
+initial minimisation:	-0.008 0.004 -0.002  (err=8714.547)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.004 -0.002  (err=8714.547/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.5
+
+doing frame 228
+initial guess:		-0.008 0.003 -0.002
+initial minimisation:	-0.008 -0.003 0.005  (err=8338.680)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.003 0.005  (err=8338.680/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/16.0ms/0.0ms/1.0ms/0.0ms/17.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.7
+
+doing frame 229
+initial guess:		-0.008 -0.002 0.005
+initial minimisation:	-0.008 -0.002 0.005  (err=8682.078)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.002 0.005  (err=8682.078/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 230
+initial guess:		-0.008 -0.002 0.005
+initial minimisation:	-0.016 0.001 0.010  (err=8320.403)
+match overlap: 99.4%
+optimum rotation:	-0.016 0.001 0.010  (err=8320.403/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 231
+initial guess:		-0.015 0.000 0.009
+initial minimisation:	-0.018 0.002 0.016  (err=9203.237)
+match overlap: 99.2%
+optimum rotation:	-0.018 0.002 0.016  (err=9203.237/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.9ms/0.0ms/0.0ms/16.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 232
+initial guess:		-0.018 0.002 0.016
+initial minimisation:	-0.010 -0.001 0.015  (err=9181.803)
+match overlap: 99.7%
+optimum rotation:	-0.010 -0.001 0.015  (err=9181.803/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 233
+initial guess:		-0.011 -0.000 0.015
+initial minimisation:	-0.010 0.000 0.014  (err=8906.961)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.000 0.014  (err=8906.961/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 234
+initial guess:		-0.010 -0.000 0.014
+initial minimisation:	-0.006 -0.000 0.011  (err=9334.997)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.000 0.011  (err=9334.997/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 235
+initial guess:		-0.006 -0.000 0.012
+initial minimisation:	-0.007 0.000 0.005  (err=9488.030)
+match overlap: 99.7%
+optimum rotation:	-0.007 0.000 0.005  (err=9488.030/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/15.2ms/1.0ms/0.0ms/0.0ms/16.2ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 236
+initial guess:		-0.007 0.000 0.006
+initial minimisation:	-0.010 0.002 0.001  (err=9424.721)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.002 0.001  (err=9424.721/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 237
+initial guess:		-0.010 0.002 0.001
+initial minimisation:	-0.010 0.002 0.001  (err=9335.065)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.002 0.001  (err=9335.065/its=26)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 238
+initial guess:		-0.010 0.002 0.001
+initial minimisation:	-0.012 -0.003 0.009  (err=9676.256)
+match overlap: 99.4%
+optimum rotation:	-0.012 -0.003 0.009  (err=9676.256/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/1.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 239
+initial guess:		-0.012 -0.003 0.008
+initial minimisation:	-0.006 -0.004 0.012  (err=9670.955)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.004 0.012  (err=9670.955/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 240
+initial guess:		-0.007 -0.004 0.012
+initial minimisation:	-0.005 0.008 0.024  (err=9547.377)
+match overlap: 99.8%
+optimum rotation:	-0.005 0.008 0.024  (err=9547.377/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/6.0ms/0.0ms/24.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 241
+initial guess:		-0.005 0.007 0.023
+initial minimisation:	-0.013 -0.003 0.002  (err=9097.918)
+match overlap: 99.5%
+optimum rotation:	-0.013 -0.003 0.002  (err=9097.918/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 242
+initial guess:		-0.012 -0.002 0.004
+initial minimisation:	-0.013 0.003 0.008  (err=9065.784)
+match overlap: 99.4%
+optimum rotation:	-0.013 0.003 0.008  (err=9065.784/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 243
+initial guess:		-0.013 0.002 0.007
+initial minimisation:	-0.009 0.000 0.001  (err=8833.480)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.000 0.001  (err=8833.480/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 244
+initial guess:		-0.009 0.001 0.002
+initial minimisation:	-0.009 0.000 -0.004  (err=9315.145)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.000 -0.004  (err=9315.145/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/1.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.1
+
+doing frame 245
+initial guess:		-0.009 0.000 -0.004
+initial minimisation:	-0.007 0.000 0.003  (err=9124.364)
+match overlap: 99.7%
+optimum rotation:	-0.007 0.000 0.003  (err=9124.364/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.4
+
+doing frame 246
+initial guess:		-0.008 0.000 0.002
+initial minimisation:	-0.009 -0.001 0.005  (err=8829.006)
+match overlap: 99.5%
+optimum rotation:	-0.009 -0.001 0.005  (err=8829.006/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 247
+initial guess:		-0.009 -0.001 0.004
+initial minimisation:	-0.011 0.001 0.012  (err=9235.475)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.001 0.012  (err=9235.475/its=16)
+grab/test/save/draw/wait/total time: 0.0ms/8.0ms/1.0ms/0.0ms/0.0ms/9.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.4
+
+doing frame 248
+initial guess:		-0.011 0.001 0.011
+initial minimisation:	-0.007 -0.003 0.011  (err=9023.140)
+match overlap: 99.8%
+optimum rotation:	-0.007 -0.003 0.011  (err=9023.140/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/1.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.4
+
+doing frame 249
+initial guess:		-0.007 -0.003 0.011
+initial minimisation:	-0.014 0.006 -0.002  (err=9453.097)
+match overlap: 99.3%
+optimum rotation:	-0.014 0.006 -0.002  (err=9453.097/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.0
+
+doing frame 250
+initial guess:		-0.013 0.005 -0.001
+initial minimisation:	-0.007 -0.005 -0.009  (err=9251.524)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.005 -0.009  (err=9251.524/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.0
+
+doing frame 251
+initial guess:		-0.008 -0.004 -0.009
+initial minimisation:	-0.012 0.001 0.002  (err=9654.001)
+match overlap: 99.5%
+optimum rotation:	-0.012 0.001 0.002  (err=9654.001/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.0
+
+doing frame 252
+initial guess:		-0.012 0.000 0.001
+initial minimisation:	-0.015 0.001 0.007  (err=9588.811)
+match overlap: 99.4%
+optimum rotation:	-0.015 0.001 0.007  (err=9588.811/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.2
+
+doing frame 253
+initial guess:		-0.015 0.001 0.006
+initial minimisation:	-0.007 -0.004 0.025  (err=9549.807)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.004 0.025  (err=9549.807/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/0.0ms/1.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.0
+
+doing frame 254
+initial guess:		-0.008 -0.003 0.023
+initial minimisation:	-0.008 0.001 0.014  (err=9436.419)
+match overlap: 99.8%
+optimum rotation:	-0.008 0.001 0.014  (err=9436.419/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.4
+
+doing frame 255
+initial guess:		-0.008 0.001 0.015
+initial minimisation:	-0.006 0.001 0.015  (err=9321.085)
+match overlap: 99.7%
+optimum rotation:	-0.006 0.001 0.015  (err=9321.085/its=12)
+grab/test/save/draw/wait/total time: 0.0ms/6.0ms/1.0ms/0.0ms/0.0ms/7.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.2
+
+doing frame 256
+initial guess:		-0.006 0.001 0.015
+initial minimisation:	-0.009 0.002 0.019  (err=9353.006)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.002 0.019  (err=9353.006/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.4
+
+doing frame 257
+initial guess:		-0.009 0.002 0.019
+initial minimisation:	-0.008 -0.002 0.018  (err=9420.485)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.002 0.018  (err=9420.485/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.3
+
+doing frame 258
+initial guess:		-0.008 -0.001 0.018
+initial minimisation:	-0.005 -0.000 0.019  (err=9581.314)
+match overlap: 99.8%
+optimum rotation:	-0.005 -0.000 0.019  (err=9581.314/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.4
+
+doing frame 259
+initial guess:		-0.006 -0.001 0.019
+initial minimisation:	-0.006 -0.000 0.002  (err=9340.992)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.000 0.002  (err=9340.992/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 61.2
+
+doing frame 260
+initial guess:		-0.006 -0.000 0.004
+initial minimisation:	-0.010 0.005 0.001  (err=9655.523)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.005 0.001  (err=9655.523/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/19.9ms/0.0ms/34.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 261
+initial guess:		-0.009 0.005 0.001
+initial minimisation:	-0.012 -0.006 0.002  (err=8844.182)
+match overlap: 99.4%
+optimum rotation:	-0.012 -0.006 0.002  (err=8844.182/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/1.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.2
+
+doing frame 262
+initial guess:		-0.011 -0.005 0.002
+initial minimisation:	-0.009 -0.000 -0.001  (err=8972.809)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.000 -0.001  (err=8972.809/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.1
+
+doing frame 263
+initial guess:		-0.009 -0.001 -0.001
+initial minimisation:	-0.011 -0.001 0.001  (err=8708.083)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 0.001  (err=8708.083/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 264
+initial guess:		-0.011 -0.001 0.001
+initial minimisation:	-0.009 0.000 0.010  (err=8984.817)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.000 0.010  (err=8984.817/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.8
+
+doing frame 265
+initial guess:		-0.009 0.000 0.009
+initial minimisation:	-0.007 0.000 0.005  (err=8681.130)
+match overlap: 99.7%
+optimum rotation:	-0.007 0.000 0.005  (err=8681.130/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.2
+
+doing frame 266
+initial guess:		-0.007 0.000 0.006
+initial minimisation:	-0.005 -0.000 -0.000  (err=8213.245)
+match overlap: 99.8%
+optimum rotation:	-0.005 -0.000 -0.000  (err=8213.245/its=43)
+grab/test/save/draw/wait/total time: 0.0ms/20.9ms/1.0ms/0.0ms/0.0ms/21.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 267
+initial guess:		-0.005 -0.000 0.000
+initial minimisation:	-0.008 0.000 -0.005  (err=8262.229)
+match overlap: 99.6%
+optimum rotation:	-0.008 0.000 -0.005  (err=8262.229/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.2
+
+doing frame 268
+initial guess:		-0.007 0.000 -0.004
+initial minimisation:	-0.010 0.001 -0.004  (err=8594.778)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.001 -0.004  (err=8594.778/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.6
+
+doing frame 269
+initial guess:		-0.009 0.001 -0.004
+initial minimisation:	-0.008 -0.001 0.001  (err=8579.010)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.001 0.001  (err=8579.010/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.8
+
+doing frame 270
+initial guess:		-0.008 -0.000 0.000
+initial minimisation:	-0.014 -0.004 0.006  (err=8942.507)
+match overlap: 99.6%
+optimum rotation:	-0.014 -0.004 0.006  (err=8942.507/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.6
+
+doing frame 271
+initial guess:		-0.013 -0.003 0.005
+initial minimisation:	-0.013 -0.003 0.012  (err=9261.348)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.003 0.012  (err=9261.348/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.5
+
+doing frame 272
+initial guess:		-0.013 -0.003 0.011
+initial minimisation:	-0.014 0.009 0.011  (err=9453.097)
+match overlap: 99.4%
+optimum rotation:	-0.014 0.009 0.011  (err=9453.097/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.5
+
+doing frame 273
+initial guess:		-0.014 0.008 0.011
+initial minimisation:	-0.008 -0.005 0.020  (err=8676.499)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.005 0.020  (err=8676.499/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.4
+
+doing frame 274
+initial guess:		-0.008 -0.003 0.019
+initial minimisation:	-0.009 -0.003 0.023  (err=8740.518)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.003 0.023  (err=8740.518/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.6
+
+doing frame 275
+initial guess:		-0.009 -0.003 0.022
+initial minimisation:	-0.002 -0.002 0.021  (err=8741.339)
+match overlap: 99.8%
+optimum rotation:	-0.002 -0.002 0.021  (err=8741.339/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.8
+
+doing frame 276
+initial guess:		-0.003 -0.002 0.021
+initial minimisation:	-0.006 0.002 0.006  (err=8506.258)
+match overlap: 100.0%
+optimum rotation:	-0.006 0.002 0.006  (err=8506.258/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.6
+
+doing frame 277
+initial guess:		-0.005 0.001 0.008
+initial minimisation:	-0.017 0.000 -0.019  (err=8177.132)
+match overlap: 99.3%
+optimum rotation:	-0.017 0.000 -0.019  (err=8177.132/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 278
+initial guess:		-0.016 0.000 -0.017
+initial minimisation:	-0.014 0.002 -0.023  (err=8154.305)
+match overlap: 99.4%
+optimum rotation:	-0.014 0.002 -0.023  (err=8154.305/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.5
+
+doing frame 279
+initial guess:		-0.014 0.002 -0.022
+initial minimisation:	-0.006 0.002 -0.022  (err=8499.089)
+match overlap: 99.7%
+optimum rotation:	-0.006 0.002 -0.022  (err=8499.089/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/1.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.5
+
+doing frame 280
+initial guess:		-0.007 0.002 -0.022
+initial minimisation:	-0.012 -0.001 -0.018  (err=9353.006)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.001 -0.018  (err=9353.006/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/23.9ms/0.0ms/39.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.9
+
+doing frame 281
+initial guess:		-0.012 -0.001 -0.018
+initial minimisation:	-0.011 -0.001 -0.019  (err=9382.896)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 -0.019  (err=9382.896/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.2
+
+doing frame 282
+initial guess:		-0.011 -0.001 -0.019
+initial minimisation:	-0.012 0.002 -0.024  (err=9542.775)
+match overlap: 99.4%
+optimum rotation:	-0.012 0.002 -0.024  (err=9542.775/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.7
+
+doing frame 283
+initial guess:		-0.012 0.002 -0.023
+initial minimisation:	-0.010 0.003 -0.019  (err=9835.363)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.003 -0.019  (err=9835.363/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/0.0ms/1.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.7
+
+doing frame 284
+initial guess:		-0.010 0.003 -0.019
+initial minimisation:	-0.009 0.002 -0.018  (err=9716.859)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.002 -0.018  (err=9716.859/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.0
+
+doing frame 285
+initial guess:		-0.009 0.002 -0.018
+initial minimisation:	-0.008 0.001 -0.016  (err=10067.040)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.001 -0.016  (err=10067.040/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 286
+initial guess:		-0.009 0.001 -0.016
+initial minimisation:	-0.004 -0.006 0.117  (err=8816.478)
+match overlap: 99.7%
+optimum rotation:	-0.004 -0.006 0.117  (err=8816.478/its=47)
+grab/test/save/draw/wait/total time: 0.0ms/22.9ms/0.0ms/0.0ms/0.0ms/22.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.5
+
+doing frame 287
+initial guess:		-0.004 -0.005 0.103
+initial minimisation:	-0.007 -0.002 0.023  (err=9040.909)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.002 0.023  (err=9040.909/its=45)
+grab/test/save/draw/wait/total time: 0.0ms/21.9ms/1.0ms/0.0ms/0.0ms/22.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.8
+
+doing frame 288
+initial guess:		-0.007 -0.002 0.031
+initial minimisation:	-0.011 0.000 0.008  (err=8946.860)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.000 0.008  (err=8946.860/its=43)
+grab/test/save/draw/wait/total time: 0.0ms/20.9ms/0.0ms/1.0ms/0.0ms/21.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.2
+
+doing frame 289
+initial guess:		-0.011 0.000 0.011
+initial minimisation:	-0.011 0.004 -0.020  (err=8739.695)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.004 -0.020  (err=8739.695/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.2
+
+doing frame 290
+initial guess:		-0.011 0.004 -0.017
+initial minimisation:	-0.010 -0.004 -0.020  (err=8851.206)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.004 -0.020  (err=8851.206/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.7
+
+doing frame 291
+initial guess:		-0.010 -0.003 -0.020
+initial minimisation:	-0.021 0.005 -0.013  (err=9085.301)
+match overlap: 99.2%
+optimum rotation:	-0.021 0.005 -0.013  (err=9085.301/its=41)
+grab/test/save/draw/wait/total time: 0.0ms/19.9ms/0.0ms/0.0ms/0.0ms/19.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.4
+
+doing frame 292
+initial guess:		-0.020 0.004 -0.013
+initial minimisation:	-0.005 -0.001 -0.022  (err=9909.632)
+match overlap: 99.7%
+optimum rotation:	-0.005 -0.001 -0.022  (err=9909.632/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/16.1ms/0.0ms/0.0ms/0.0ms/16.1ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.8
+
+doing frame 293
+initial guess:		-0.007 -0.000 -0.021
+initial minimisation:	-0.019 -0.004 -0.008  (err=9783.141)
+match overlap: 99.2%
+optimum rotation:	-0.019 -0.004 -0.008  (err=9783.141/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.0
+
+doing frame 294
+initial guess:		-0.018 -0.004 -0.009
+initial minimisation:	-0.002 -0.003 0.038  (err=8470.636)
+match overlap: 99.8%
+optimum rotation:	-0.002 -0.003 0.038  (err=8470.636/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.7
+
+doing frame 295
+initial guess:		-0.003 -0.003 0.034
+initial minimisation:	-0.009 0.001 0.041  (err=7840.881)
+match overlap: 99.7%
+optimum rotation:	-0.009 0.001 0.041  (err=7840.881/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.3ms/0.0ms/0.0ms/0.0ms/20.3ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.3
+
+doing frame 296
+initial guess:		-0.008 0.001 0.040
+initial minimisation:	-0.008 -0.000 0.039  (err=7938.695)
+match overlap: 99.8%
+optimum rotation:	-0.008 -0.000 0.039  (err=7938.695/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/10.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.0
+
+doing frame 297
+initial guess:		-0.008 -0.000 0.039
+initial minimisation:	-0.013 0.006 0.040  (err=7782.915)
+match overlap: 99.5%
+optimum rotation:	-0.013 0.006 0.040  (err=7782.915/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 298
+initial guess:		-0.012 0.006 0.040
+initial minimisation:	-0.006 0.005 0.036  (err=8467.595)
+match overlap: 99.6%
+optimum rotation:	-0.006 0.005 0.036  (err=8467.595/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.0
+
+doing frame 299
+initial guess:		-0.007 0.005 0.036
+initial minimisation:	-0.015 -0.009 -0.006  (err=7780.650)
+match overlap: 99.4%
+optimum rotation:	-0.015 -0.009 -0.006  (err=7780.650/its=47)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 300
+initial guess:		-0.014 -0.008 -0.001
+initial minimisation:	-0.015 0.007 -0.029  (err=7330.497)
+match overlap: 99.4%
+optimum rotation:	-0.015 0.007 -0.029  (err=7330.497/its=40)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/20.0ms/0.0ms/40.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.4
+
+doing frame 301
+initial guess:		-0.015 0.006 -0.026
+initial minimisation:	-0.003 -0.002 -0.020  (err=6994.777)
+match overlap: 99.8%
+optimum rotation:	-0.003 -0.002 -0.020  (err=6994.777/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.7
+
+doing frame 302
+initial guess:		-0.004 -0.001 -0.021
+initial minimisation:	-0.012 -0.002 -0.008  (err=6828.601)
+match overlap: 99.6%
+optimum rotation:	-0.012 -0.002 -0.008  (err=6828.601/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.5
+
+doing frame 303
+initial guess:		-0.011 -0.002 -0.010
+initial minimisation:	-0.016 0.002 0.003  (err=6930.039)
+match overlap: 99.4%
+optimum rotation:	-0.016 0.002 0.003  (err=6930.039/its=42)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.3
+
+doing frame 304
+initial guess:		-0.015 0.002 0.002
+initial minimisation:	-0.007 -0.002 0.012  (err=6663.880)
+match overlap: 99.8%
+optimum rotation:	-0.007 -0.002 0.012  (err=6663.880/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.1
+
+doing frame 305
+initial guess:		-0.007 -0.002 0.011
+initial minimisation:	-0.006 -0.002 0.009  (err=6388.372)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.002 0.009  (err=6388.372/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/10.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.0
+
+doing frame 306
+initial guess:		-0.006 -0.002 0.009
+initial minimisation:	-0.010 0.001 0.000  (err=6805.104)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.001 0.000  (err=6805.104/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.2
+
+doing frame 307
+initial guess:		-0.010 0.001 0.001
+initial minimisation:	-0.010 -0.001 0.012  (err=6644.585)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.001 0.012  (err=6644.585/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.0
+
+doing frame 308
+initial guess:		-0.010 -0.001 0.011
+initial minimisation:	-0.007 -0.001 0.010  (err=6960.501)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.001 0.010  (err=6960.501/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.3
+
+doing frame 309
+initial guess:		-0.008 -0.001 0.010
+initial minimisation:	-0.010 -0.001 0.005  (err=6607.042)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.001 0.005  (err=6607.042/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.0
+
+doing frame 310
+initial guess:		-0.010 -0.001 0.005
+initial minimisation:	-0.016 0.000 -0.005  (err=7304.293)
+match overlap: 99.3%
+optimum rotation:	-0.016 0.000 -0.005  (err=7304.293/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 311
+initial guess:		-0.015 0.000 -0.004
+initial minimisation:	-0.013 0.001 0.002  (err=7765.636)
+match overlap: 99.6%
+optimum rotation:	-0.013 0.001 0.002  (err=7765.636/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.9
+
+doing frame 312
+initial guess:		-0.013 0.001 0.002
+initial minimisation:	-0.012 0.000 0.012  (err=8161.258)
+match overlap: 99.5%
+optimum rotation:	-0.012 0.000 0.012  (err=8161.258/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 313
+initial guess:		-0.012 0.000 0.011
+initial minimisation:	-0.012 0.000 0.005  (err=8434.847)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.000 0.005  (err=8434.847/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 314
+initial guess:		-0.012 0.000 0.006
+initial minimisation:	-0.012 0.000 0.005  (err=8678.385)
+match overlap: 99.4%
+optimum rotation:	-0.012 0.000 0.005  (err=8678.385/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 315
+initial guess:		-0.012 0.000 0.005
+initial minimisation:	-0.013 -0.000 0.008  (err=8863.868)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.000 0.008  (err=8863.868/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 316
+initial guess:		-0.013 -0.000 0.008
+initial minimisation:	-0.005 -0.001 0.012  (err=8606.046)
+match overlap: 99.8%
+optimum rotation:	-0.005 -0.001 0.012  (err=8606.046/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.3
+
+doing frame 317
+initial guess:		-0.006 -0.001 0.011
+initial minimisation:	-0.009 -0.001 -0.001  (err=8416.800)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.001 -0.001  (err=8416.800/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 318
+initial guess:		-0.009 -0.001 0.001
+initial minimisation:	-0.010 0.002 -0.002  (err=8126.383)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.002 -0.002  (err=8126.383/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/19.0ms/0.0ms/1.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 319
+initial guess:		-0.009 0.002 -0.002
+initial minimisation:	-0.009 0.002 -0.002  (err=7783.506)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.002 -0.002  (err=7783.506/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 320
+initial guess:		-0.009 0.002 -0.002
+initial minimisation:	-0.008 -0.001 0.006  (err=7692.628)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.001 0.006  (err=7692.628/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/12.0ms/0.0ms/10.0ms/0.0ms/22.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 321
+initial guess:		-0.008 -0.000 0.006
+initial minimisation:	-0.006 0.000 0.011  (err=7143.161)
+match overlap: 99.8%
+optimum rotation:	-0.006 0.000 0.011  (err=7143.161/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 322
+initial guess:		-0.006 0.000 0.011
+initial minimisation:	-0.013 0.001 -0.003  (err=7444.972)
+match overlap: 99.6%
+optimum rotation:	-0.013 0.001 -0.003  (err=7444.972/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.0
+
+doing frame 323
+initial guess:		-0.012 0.001 -0.002
+initial minimisation:	-0.010 -0.001 0.007  (err=7573.697)
+match overlap: 99.5%
+optimum rotation:	-0.010 -0.001 0.007  (err=7573.697/its=26)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 324
+initial guess:		-0.010 -0.001 0.006
+initial minimisation:	-0.009 0.000 0.006  (err=7672.115)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.000 0.006  (err=7672.115/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.5
+
+doing frame 325
+initial guess:		-0.009 0.000 0.006
+initial minimisation:	-0.008 0.001 0.021  (err=7794.092)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.001 0.021  (err=7794.092/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.0
+
+doing frame 326
+initial guess:		-0.008 0.001 0.019
+initial minimisation:	-0.009 -0.005 0.019  (err=7545.183)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.005 0.019  (err=7545.183/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.2
+
+doing frame 327
+initial guess:		-0.009 -0.004 0.019
+initial minimisation:	-0.009 -0.000 -0.022  (err=7294.739)
+match overlap: 99.5%
+optimum rotation:	-0.009 -0.000 -0.022  (err=7294.739/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.6
+
+doing frame 328
+initial guess:		-0.009 -0.001 -0.017
+initial minimisation:	-0.009 -0.001 -0.018  (err=7749.021)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.001 -0.018  (err=7749.021/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.0
+
+doing frame 329
+initial guess:		-0.009 -0.001 -0.018
+initial minimisation:	-0.009 0.005 -0.019  (err=7755.658)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.005 -0.019  (err=7755.658/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.3
+
+doing frame 330
+initial guess:		-0.009 0.004 -0.018
+initial minimisation:	-0.010 -0.003 0.047  (err=7012.773)
+match overlap: 99.5%
+optimum rotation:	-0.010 -0.003 0.047  (err=7012.773/its=43)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/10.0ms/0.0ms/0.0ms/30.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 331
+initial guess:		-0.010 -0.003 0.041
+initial minimisation:	-0.014 -0.002 0.038  (err=7073.091)
+match overlap: 99.5%
+optimum rotation:	-0.014 -0.002 0.038  (err=7073.091/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.2
+
+doing frame 332
+initial guess:		-0.014 -0.002 0.039
+initial minimisation:	-0.008 -0.000 0.004  (err=7235.823)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.000 0.004  (err=7235.823/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.6
+
+doing frame 333
+initial guess:		-0.009 -0.000 0.008
+initial minimisation:	-0.013 0.003 0.006  (err=6875.629)
+match overlap: 99.4%
+optimum rotation:	-0.013 0.003 0.006  (err=6875.629/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.1
+
+doing frame 334
+initial guess:		-0.012 0.003 0.006
+initial minimisation:	-0.002 -0.000 0.006  (err=6967.460)
+match overlap: 99.9%
+optimum rotation:	-0.002 -0.000 0.006  (err=6967.460/its=42)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 335
+initial guess:		-0.003 0.000 0.006
+initial minimisation:	-0.005 0.001 0.007  (err=6713.783)
+match overlap: 99.8%
+optimum rotation:	-0.005 0.001 0.007  (err=6713.783/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.9
+
+doing frame 336
+initial guess:		-0.005 0.001 0.006
+initial minimisation:	-0.012 -0.006 0.006  (err=6738.270)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.006 0.006  (err=6738.270/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.4
+
+doing frame 337
+initial guess:		-0.012 -0.006 0.006
+initial minimisation:	-0.007 0.004 0.007  (err=6530.348)
+match overlap: 99.6%
+optimum rotation:	-0.007 0.004 0.007  (err=6530.348/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 338
+initial guess:		-0.007 0.003 0.007
+initial minimisation:	-0.011 0.002 -0.012  (err=6907.775)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.002 -0.012  (err=6907.775/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 339
+initial guess:		-0.011 0.002 -0.010
+initial minimisation:	-0.010 -0.005 -0.009  (err=6988.343)
+match overlap: 99.7%
+optimum rotation:	-0.010 -0.005 -0.009  (err=6988.343/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.7
+
+doing frame 340
+initial guess:		-0.010 -0.004 -0.009
+initial minimisation:	-0.011 0.005 -0.002  (err=6930.608)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.005 -0.002  (err=6930.608/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/20.0ms/0.0ms/40.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.0
+
+doing frame 341
+initial guess:		-0.011 0.004 -0.003
+initial minimisation:	-0.013 -0.003 0.006  (err=7375.553)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.003 0.006  (err=7375.553/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 342
+initial guess:		-0.012 -0.003 0.005
+initial minimisation:	-0.009 0.002 0.007  (err=7187.853)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.002 0.007  (err=7187.853/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.9
+
+doing frame 343
+initial guess:		-0.009 0.002 0.007
+initial minimisation:	-0.010 -0.001 0.011  (err=6548.479)
+match overlap: 99.7%
+optimum rotation:	-0.010 -0.001 0.011  (err=6548.479/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 344
+initial guess:		-0.010 -0.001 0.011
+initial minimisation:	-0.010 -0.001 0.010  (err=7110.367)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.001 0.010  (err=7110.367/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 345
+initial guess:		-0.010 -0.001 0.010
+initial minimisation:	-0.010 -0.001 0.013  (err=7150.659)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.001 0.013  (err=7150.659/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 346
+initial guess:		-0.010 -0.001 0.012
+initial minimisation:	-0.010 0.000 0.020  (err=6890.896)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.000 0.020  (err=6890.896/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.6
+
+doing frame 347
+initial guess:		-0.010 0.000 0.019
+initial minimisation:	-0.010 0.001 0.020  (err=7152.192)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.001 0.020  (err=7152.192/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.8
+
+doing frame 348
+initial guess:		-0.010 0.001 0.020
+initial minimisation:	-0.010 -0.002 0.020  (err=7591.822)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.002 0.020  (err=7591.822/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/20.0ms/0.0ms/0.0ms/0.0ms/20.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.3
+
+doing frame 349
+initial guess:		-0.010 -0.002 0.020
+initial minimisation:	-0.007 0.003 0.014  (err=8075.910)
+match overlap: 99.6%
+optimum rotation:	-0.007 0.003 0.014  (err=8075.910/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/10.0ms/0.0ms/0.0ms/0.0ms/10.0ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.5
+
+doing frame 350
+initial guess:		-0.008 0.002 0.015
+initial minimisation:	-0.010 -0.005 0.008  (err=7690.979)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.005 0.008  (err=7690.979/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/22.2ms/1.0ms/0.0ms/0.0ms/23.2ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.4
+
+doing frame 351
+initial guess:		-0.010 -0.004 0.009
+initial minimisation:	-0.021 -0.002 0.011  (err=8304.938)
+match overlap: 99.2%
+optimum rotation:	-0.021 -0.002 0.011  (err=8304.938/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.8
+
+doing frame 352
+initial guess:		-0.020 -0.002 0.010
+initial minimisation:	-0.006 0.004 -0.012  (err=7505.027)
+match overlap: 99.6%
+optimum rotation:	-0.006 0.004 -0.012  (err=7505.027/its=41)
+grab/test/save/draw/wait/total time: 0.0ms/19.9ms/1.0ms/0.0ms/0.0ms/20.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.1
+
+doing frame 353
+initial guess:		-0.007 0.003 -0.010
+initial minimisation:	-0.007 0.000 -0.007  (err=8102.068)
+match overlap: 99.8%
+optimum rotation:	-0.007 0.000 -0.007  (err=8102.068/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 354
+initial guess:		-0.007 0.001 -0.007
+initial minimisation:	-0.010 0.001 -0.002  (err=7719.799)
+match overlap: 99.5%
+optimum rotation:	-0.010 0.001 -0.002  (err=7719.799/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 355
+initial guess:		-0.010 0.001 -0.003
+initial minimisation:	-0.012 0.005 0.004  (err=8258.690)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.005 0.004  (err=8258.690/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 356
+initial guess:		-0.012 0.004 0.004
+initial minimisation:	-0.010 -0.000 0.002  (err=7920.695)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.000 0.002  (err=7920.695/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 357
+initial guess:		-0.010 0.000 0.002
+initial minimisation:	-0.008 -0.000 0.002  (err=8142.043)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.000 0.002  (err=8142.043/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/0.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.6
+
+doing frame 358
+initial guess:		-0.008 -0.000 0.002
+initial minimisation:	-0.009 -0.004 0.003  (err=8126.383)
+match overlap: 99.5%
+optimum rotation:	-0.009 -0.004 0.003  (err=8126.383/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 359
+initial guess:		-0.008 -0.004 0.003
+initial minimisation:	-0.010 0.000 0.011  (err=7886.455)
+match overlap: 99.7%
+optimum rotation:	-0.010 0.000 0.011  (err=7886.455/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.2
+
+doing frame 360
+initial guess:		-0.009 -0.000 0.010
+initial minimisation:	-0.009 -0.000 0.018  (err=7477.179)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.000 0.018  (err=7477.179/its=26)
+grab/test/save/draw/wait/total time: 0.0ms/11.9ms/1.0ms/15.9ms/0.0ms/28.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 361
+initial guess:		-0.009 -0.000 0.017
+initial minimisation:	-0.009 -0.003 0.017  (err=7344.230)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.003 0.017  (err=7344.230/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 362
+initial guess:		-0.009 -0.003 0.017
+initial minimisation:	-0.011 -0.003 0.009  (err=7426.253)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.003 0.009  (err=7426.253/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/1.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 363
+initial guess:		-0.011 -0.003 0.010
+initial minimisation:	-0.013 0.002 0.009  (err=7642.603)
+match overlap: 99.4%
+optimum rotation:	-0.013 0.002 0.009  (err=7642.603/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.3
+
+doing frame 364
+initial guess:		-0.013 0.002 0.009
+initial minimisation:	-0.009 0.002 0.004  (err=7311.657)
+match overlap: 99.7%
+optimum rotation:	-0.009 0.002 0.004  (err=7311.657/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/0.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.4
+
+doing frame 365
+initial guess:		-0.009 0.002 0.005
+initial minimisation:	-0.008 0.002 0.006  (err=7067.330)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.002 0.006  (err=7067.330/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.4
+
+doing frame 366
+initial guess:		-0.008 0.002 0.006
+initial minimisation:	-0.008 -0.004 0.001  (err=7415.498)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.004 0.001  (err=7415.498/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/0.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 367
+initial guess:		-0.008 -0.004 0.002
+initial minimisation:	-0.008 0.000 0.004  (err=7313.223)
+match overlap: 99.6%
+optimum rotation:	-0.008 0.000 0.004  (err=7313.223/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 368
+initial guess:		-0.008 -0.000 0.004
+initial minimisation:	-0.010 0.004 0.002  (err=7105.796)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.004 0.002  (err=7105.796/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 369
+initial guess:		-0.010 0.003 0.002
+initial minimisation:	-0.005 0.001 0.006  (err=6966.964)
+match overlap: 99.8%
+optimum rotation:	-0.005 0.001 0.006  (err=6966.964/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/1.0ms/0.0ms/0.0ms/19.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 370
+initial guess:		-0.006 0.001 0.005
+initial minimisation:	-0.010 -0.000 0.004  (err=7087.307)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.000 0.004  (err=7087.307/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/1.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 371
+initial guess:		-0.010 -0.000 0.004
+initial minimisation:	-0.015 -0.001 0.005  (err=7366.332)
+match overlap: 99.4%
+optimum rotation:	-0.015 -0.001 0.005  (err=7366.332/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 372
+initial guess:		-0.015 -0.001 0.005
+initial minimisation:	-0.010 -0.003 0.002  (err=7615.541)
+match overlap: 99.5%
+optimum rotation:	-0.010 -0.003 0.002  (err=7615.541/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 373
+initial guess:		-0.010 -0.002 0.002
+initial minimisation:	-0.005 -0.000 0.005  (err=7144.688)
+match overlap: 99.8%
+optimum rotation:	-0.005 -0.000 0.005  (err=7144.688/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 374
+initial guess:		-0.006 -0.000 0.005
+initial minimisation:	-0.014 -0.000 -0.001  (err=7641.797)
+match overlap: 99.6%
+optimum rotation:	-0.014 -0.000 -0.001  (err=7641.797/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 375
+initial guess:		-0.013 -0.000 -0.000
+initial minimisation:	-0.001 0.001 -0.001  (err=7240.412)
+match overlap: 100.0%
+optimum rotation:	-0.001 0.001 -0.001  (err=7240.412/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.6
+
+doing frame 376
+initial guess:		-0.002 0.001 -0.001
+initial minimisation:	-0.011 0.003 0.006  (err=7276.208)
+match overlap: 99.4%
+optimum rotation:	-0.011 0.003 0.006  (err=7276.208/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 377
+initial guess:		-0.010 0.002 0.005
+initial minimisation:	-0.011 -0.002 0.012  (err=6655.992)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.002 0.012  (err=6655.992/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 378
+initial guess:		-0.011 -0.002 0.012
+initial minimisation:	-0.011 -0.001 0.006  (err=6941.576)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 0.006  (err=6941.576/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 379
+initial guess:		-0.011 -0.001 0.007
+initial minimisation:	-0.008 -0.001 0.007  (err=6739.208)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.001 0.007  (err=6739.208/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.2
+
+doing frame 380
+initial guess:		-0.009 -0.001 0.007
+initial minimisation:	-0.011 -0.001 0.017  (err=7048.554)
+match overlap: 99.6%
+optimum rotation:	-0.011 -0.001 0.017  (err=7048.554/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/12.9ms/0.0ms/27.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 381
+initial guess:		-0.011 -0.001 0.016
+initial minimisation:	-0.005 0.004 0.027  (err=6680.651)
+match overlap: 99.7%
+optimum rotation:	-0.005 0.004 0.027  (err=6680.651/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 382
+initial guess:		-0.006 0.003 0.026
+initial minimisation:	-0.007 -0.000 -0.001  (err=6605.405)
+match overlap: 99.8%
+optimum rotation:	-0.007 -0.000 -0.001  (err=6605.405/its=41)
+grab/test/save/draw/wait/total time: 0.0ms/19.9ms/1.0ms/0.0ms/0.0ms/20.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 383
+initial guess:		-0.007 0.000 0.002
+initial minimisation:	-0.008 -0.003 -0.004  (err=7006.764)
+match overlap: 99.6%
+optimum rotation:	-0.008 -0.003 -0.004  (err=7006.764/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 384
+initial guess:		-0.008 -0.003 -0.003
+initial minimisation:	-0.012 -0.000 -0.000  (err=6954.994)
+match overlap: 99.4%
+optimum rotation:	-0.012 -0.000 -0.000  (err=6954.994/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.6
+
+doing frame 385
+initial guess:		-0.012 -0.000 -0.001
+initial minimisation:	-0.010 0.001 0.008  (err=7155.395)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.001 0.008  (err=7155.395/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/1.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 386
+initial guess:		-0.010 0.001 0.007
+initial minimisation:	-0.011 0.001 0.010  (err=6821.975)
+match overlap: 99.5%
+optimum rotation:	-0.011 0.001 0.010  (err=6821.975/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 387
+initial guess:		-0.011 0.001 0.010
+initial minimisation:	-0.005 0.001 0.013  (err=6963.986)
+match overlap: 99.8%
+optimum rotation:	-0.005 0.001 0.013  (err=6963.986/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 388
+initial guess:		-0.006 0.001 0.013
+initial minimisation:	-0.006 -0.002 0.001  (err=7258.993)
+match overlap: 99.8%
+optimum rotation:	-0.006 -0.002 0.001  (err=7258.993/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 389
+initial guess:		-0.006 -0.002 0.003
+initial minimisation:	-0.015 -0.000 0.006  (err=7482.482)
+match overlap: 99.4%
+optimum rotation:	-0.015 -0.000 0.006  (err=7482.482/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 390
+initial guess:		-0.014 -0.000 0.006
+initial minimisation:	-0.009 0.005 0.012  (err=7189.394)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.005 0.012  (err=7189.394/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 391
+initial guess:		-0.009 0.004 0.012
+initial minimisation:	-0.013 -0.008 0.016  (err=7454.562)
+match overlap: 99.5%
+optimum rotation:	-0.013 -0.008 0.016  (err=7454.562/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/1.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 392
+initial guess:		-0.013 -0.007 0.016
+initial minimisation:	-0.008 0.006 0.018  (err=6900.385)
+match overlap: 99.7%
+optimum rotation:	-0.008 0.006 0.018  (err=6900.385/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.1
+
+doing frame 393
+initial guess:		-0.008 0.005 0.018
+initial minimisation:	-0.018 -0.003 0.013  (err=6813.872)
+match overlap: 99.4%
+optimum rotation:	-0.018 -0.003 0.013  (err=6813.872/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 394
+initial guess:		-0.017 -0.003 0.013
+initial minimisation:	-0.008 0.003 0.014  (err=6803.645)
+match overlap: 99.6%
+optimum rotation:	-0.008 0.003 0.014  (err=6803.645/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/1.0ms/0.0ms/19.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.4
+
+doing frame 395
+initial guess:		-0.009 0.002 0.014
+initial minimisation:	-0.009 -0.001 0.013  (err=6838.140)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.001 0.013  (err=6838.140/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 396
+initial guess:		-0.009 -0.001 0.013
+initial minimisation:	-0.011 0.001 0.000  (err=6735.380)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.001 0.000  (err=6735.380/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 397
+initial guess:		-0.011 0.001 0.002
+initial minimisation:	-0.006 -0.001 0.001  (err=6538.671)
+match overlap: 99.7%
+optimum rotation:	-0.006 -0.001 0.001  (err=6538.671/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/1.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 398
+initial guess:		-0.006 -0.000 0.001
+initial minimisation:	-0.010 -0.001 0.010  (err=6758.921)
+match overlap: 99.6%
+optimum rotation:	-0.010 -0.001 0.010  (err=6758.921/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 399
+initial guess:		-0.009 -0.001 0.009
+initial minimisation:	-0.011 -0.000 0.013  (err=6957.006)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.000 0.013  (err=6957.006/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.9
+
+doing frame 400
+initial guess:		-0.011 -0.000 0.013
+initial minimisation:	-0.012 -0.001 0.006  (err=7164.598)
+match overlap: 99.6%
+optimum rotation:	-0.012 -0.001 0.006  (err=7164.598/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/25.9ms/0.0ms/40.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.2
+
+doing frame 401
+initial guess:		-0.011 -0.001 0.007
+initial minimisation:	-0.012 0.002 0.008  (err=7248.276)
+match overlap: 99.4%
+optimum rotation:	-0.012 0.002 0.008  (err=7248.276/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.9
+
+doing frame 402
+initial guess:		-0.012 0.002 0.008
+initial minimisation:	-0.011 0.001 0.006  (err=7618.050)
+match overlap: 99.6%
+optimum rotation:	-0.011 0.001 0.006  (err=7618.050/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.1
+
+doing frame 403
+initial guess:		-0.011 0.001 0.006
+initial minimisation:	-0.009 -0.003 0.016  (err=7873.794)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.003 0.016  (err=7873.794/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.4
+
+doing frame 404
+initial guess:		-0.010 -0.003 0.015
+initial minimisation:	-0.010 0.005 0.002  (err=7542.565)
+match overlap: 99.5%
+optimum rotation:	-0.010 0.005 0.002  (err=7542.565/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.4
+
+doing frame 405
+initial guess:		-0.010 0.004 0.003
+initial minimisation:	-0.009 -0.003 0.008  (err=7771.247)
+match overlap: 99.7%
+optimum rotation:	-0.009 -0.003 0.008  (err=7771.247/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/1.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 406
+initial guess:		-0.009 -0.003 0.008
+initial minimisation:	-0.009 -0.003 0.007  (err=8075.910)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.003 0.007  (err=8075.910/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.2ms/0.0ms/0.0ms/0.0ms/13.2ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 407
+initial guess:		-0.009 -0.003 0.007
+initial minimisation:	-0.011 -0.000 0.003  (err=7617.174)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.000 0.003  (err=7617.174/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/17.2ms/1.0ms/0.0ms/0.0ms/18.2ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 408
+initial guess:		-0.011 -0.000 0.004
+initial minimisation:	-0.014 0.001 0.025  (err=7969.638)
+match overlap: 99.6%
+optimum rotation:	-0.014 0.001 0.025  (err=7969.638/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 409
+initial guess:		-0.014 0.001 0.023
+initial minimisation:	-0.013 -0.000 0.017  (err=8180.565)
+match overlap: 99.4%
+optimum rotation:	-0.013 -0.000 0.017  (err=8180.565/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.4
+
+doing frame 410
+initial guess:		-0.013 -0.000 0.018
+initial minimisation:	-0.004 0.002 0.002  (err=7859.097)
+match overlap: 99.9%
+optimum rotation:	-0.004 0.002 0.002  (err=7859.097/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.2
+
+doing frame 411
+initial guess:		-0.005 0.002 0.003
+initial minimisation:	-0.021 -0.002 -0.027  (err=8681.202)
+match overlap: 99.2%
+optimum rotation:	-0.021 -0.002 -0.027  (err=8681.202/its=40)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/1.0ms/0.0ms/0.0ms/19.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.9
+
+doing frame 412
+initial guess:		-0.019 -0.001 -0.024
+initial minimisation:	-0.009 0.002 -0.025  (err=9446.529)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.002 -0.025  (err=9446.529/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/1.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.0
+
+doing frame 413
+initial guess:		-0.010 0.002 -0.025
+initial minimisation:	-0.010 0.001 -0.025  (err=10633.107)
+match overlap: 99.6%
+optimum rotation:	-0.010 0.001 -0.025  (err=10633.107/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 414
+initial guess:		-0.010 0.001 -0.025
+initial minimisation:	-0.011 -0.001 -0.023  (err=11412.778)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.001 -0.023  (err=11412.778/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.3
+
+doing frame 415
+initial guess:		-0.011 -0.001 -0.023
+initial minimisation:	-0.014 -0.011 0.162  (err=8983.901)
+match overlap: 99.4%
+optimum rotation:	-0.014 -0.011 0.162  (err=8983.901/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 416
+initial guess:		-0.014 -0.010 0.143
+initial minimisation:	-0.012 -0.010 0.123  (err=11906.576)
+match overlap: 99.4%
+optimum rotation:	-0.012 -0.010 0.123  (err=11906.576/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 417
+initial guess:		-0.012 -0.010 0.125
+initial minimisation:	-0.007 0.012 -0.139  (err=9125.826)
+match overlap: 99.5%
+optimum rotation:	-0.007 0.012 -0.139  (err=9125.826/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 418
+initial guess:		-0.007 0.010 -0.113
+initial minimisation:	-0.009 0.004 -0.040  (err=8742.389)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.004 -0.040  (err=8742.389/its=46)
+grab/test/save/draw/wait/total time: 0.0ms/22.9ms/0.0ms/1.0ms/0.0ms/23.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.1
+
+doing frame 419
+initial guess:		-0.009 0.005 -0.047
+initial minimisation:	-0.009 0.005 -0.047  (err=10227.557)
+match overlap: 99.7%
+optimum rotation:	-0.009 0.005 -0.047  (err=10227.557/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/0.0ms/0.0ms/0.0ms/12.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.9
+
+doing frame 420
+initial guess:		-0.009 0.005 -0.047
+initial minimisation:	-0.022 0.003 -0.041  (err=11649.612)
+match overlap: 99.3%
+optimum rotation:	-0.022 0.003 -0.041  (err=11649.612/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/29.9ms/0.0ms/48.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.5
+
+doing frame 421
+initial guess:		-0.021 0.004 -0.042
+initial minimisation:	-0.001 -0.011 0.099  (err=8903.144)
+match overlap: 99.7%
+optimum rotation:	-0.001 -0.011 0.099  (err=8903.144/its=40)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/1.0ms/0.0ms/0.0ms/19.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.4
+
+doing frame 422
+initial guess:		-0.003 -0.010 0.085
+initial minimisation:	-0.019 -0.008 0.072  (err=9479.026)
+match overlap: 99.4%
+optimum rotation:	-0.019 -0.008 0.072  (err=9479.026/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.6
+
+doing frame 423
+initial guess:		-0.017 -0.008 0.073
+initial minimisation:	-0.016 -0.008 0.067  (err=10369.342)
+match overlap: 99.4%
+optimum rotation:	-0.016 -0.008 0.067  (err=10369.342/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.1
+
+doing frame 424
+initial guess:		-0.016 -0.008 0.068
+initial minimisation:	0.002 0.005 -0.048  (err=8721.000)
+match overlap: 99.7%
+optimum rotation:	0.002 0.005 -0.048  (err=8721.000/its=48)
+grab/test/save/draw/wait/total time: 0.0ms/22.9ms/1.0ms/0.0ms/0.0ms/23.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.5
+
+doing frame 425
+initial guess:		0.000 0.004 -0.037
+initial minimisation:	-0.012 0.003 -0.028  (err=8206.498)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.003 -0.028  (err=8206.498/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.9
+
+doing frame 426
+initial guess:		-0.010 0.003 -0.029
+initial minimisation:	-0.012 0.000 -0.020  (err=8668.142)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.000 -0.020  (err=8668.142/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.4
+
+doing frame 427
+initial guess:		-0.012 0.000 -0.020
+initial minimisation:	-0.008 -0.000 -0.008  (err=8575.337)
+match overlap: 99.7%
+optimum rotation:	-0.008 -0.000 -0.008  (err=8575.337/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.5
+
+doing frame 428
+initial guess:		-0.009 -0.000 -0.009
+initial minimisation:	-0.014 -0.002 0.043  (err=8321.860)
+match overlap: 99.4%
+optimum rotation:	-0.014 -0.002 0.043  (err=8321.860/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.6
+
+doing frame 429
+initial guess:		-0.013 -0.002 0.038
+initial minimisation:	-0.011 -0.005 0.037  (err=7660.671)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.005 0.037  (err=7660.671/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.1
+
+doing frame 430
+initial guess:		-0.011 -0.005 0.037
+initial minimisation:	-0.011 -0.002 -0.016  (err=7924.443)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.002 -0.016  (err=7924.443/its=40)
+grab/test/save/draw/wait/total time: 0.0ms/19.9ms/1.0ms/0.0ms/0.0ms/20.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.8
+
+doing frame 431
+initial guess:		-0.011 -0.002 -0.011
+initial minimisation:	-0.026 0.008 -0.012  (err=9110.800)
+match overlap: 99.0%
+optimum rotation:	-0.026 0.008 -0.012  (err=9110.800/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.0
+
+doing frame 432
+initial guess:		-0.025 0.007 -0.012
+initial minimisation:	-0.009 -0.007 0.025  (err=8639.295)
+match overlap: 99.5%
+optimum rotation:	-0.009 -0.007 0.025  (err=8639.295/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.1
+
+doing frame 433
+initial guess:		-0.010 -0.006 0.022
+initial minimisation:	-0.007 -0.001 0.025  (err=8232.600)
+match overlap: 99.6%
+optimum rotation:	-0.007 -0.001 0.025  (err=8232.600/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/1.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.4
+
+doing frame 434
+initial guess:		-0.008 -0.001 0.025
+initial minimisation:	-0.006 -0.001 0.015  (err=7808.558)
+match overlap: 99.9%
+optimum rotation:	-0.006 -0.001 0.015  (err=7808.558/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.5
+
+doing frame 435
+initial guess:		-0.006 -0.001 0.016
+initial minimisation:	-0.013 -0.001 0.016  (err=8543.431)
+match overlap: 99.5%
+optimum rotation:	-0.013 -0.001 0.016  (err=8543.431/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.5
+
+doing frame 436
+initial guess:		-0.012 -0.001 0.016
+initial minimisation:	-0.012 0.003 0.008  (err=8150.766)
+match overlap: 99.6%
+optimum rotation:	-0.012 0.003 0.008  (err=8150.766/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.7
+
+doing frame 437
+initial guess:		-0.012 0.002 0.009
+initial minimisation:	-0.002 -0.001 0.019  (err=8350.433)
+match overlap: 99.8%
+optimum rotation:	-0.002 -0.001 0.019  (err=8350.433/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.3
+
+doing frame 438
+initial guess:		-0.003 -0.000 0.018
+initial minimisation:	-0.013 0.003 -0.006  (err=8276.417)
+match overlap: 99.5%
+optimum rotation:	-0.013 0.003 -0.006  (err=8276.417/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.3
+
+doing frame 439
+initial guess:		-0.012 0.002 -0.004
+initial minimisation:	-0.008 0.002 -0.012  (err=8369.692)
+match overlap: 99.8%
+optimum rotation:	-0.008 0.002 -0.012  (err=8369.692/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.7
+
+doing frame 440
+initial guess:		-0.009 0.002 -0.011
+initial minimisation:	-0.011 -0.007 -0.005  (err=8605.840)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.007 -0.005  (err=8605.840/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/22.9ms/0.0ms/40.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.5
+
+doing frame 441
+initial guess:		-0.011 -0.006 -0.005
+initial minimisation:	-0.006 0.004 0.019  (err=8230.836)
+match overlap: 99.7%
+optimum rotation:	-0.006 0.004 0.019  (err=8230.836/its=49)
+grab/test/save/draw/wait/total time: 0.0ms/22.9ms/1.0ms/0.0ms/0.0ms/23.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 50.9
+
+doing frame 442
+initial guess:		-0.006 0.003 0.016
+initial minimisation:	-0.011 -0.006 0.032  (err=8054.836)
+match overlap: 99.5%
+optimum rotation:	-0.011 -0.006 0.032  (err=8054.836/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.0
+
+doing frame 443
+initial guess:		-0.011 -0.005 0.030
+initial minimisation:	-0.007 -0.001 0.022  (err=8230.661)
+match overlap: 99.8%
+optimum rotation:	-0.007 -0.001 0.022  (err=8230.661/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.5
+
+doing frame 444
+initial guess:		-0.007 -0.002 0.023
+initial minimisation:	-0.013 0.004 0.022  (err=8276.417)
+match overlap: 99.5%
+optimum rotation:	-0.013 0.004 0.022  (err=8276.417/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.7
+
+doing frame 445
+initial guess:		-0.013 0.004 0.022
+initial minimisation:	-0.009 0.002 -0.001  (err=8605.021)
+match overlap: 99.6%
+optimum rotation:	-0.009 0.002 -0.001  (err=8605.021/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.0
+
+doing frame 446
+initial guess:		-0.010 0.002 0.001
+initial minimisation:	-0.007 -0.008 0.003  (err=8613.412)
+match overlap: 99.7%
+optimum rotation:	-0.007 -0.008 0.003  (err=8613.412/its=39)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/1.0ms/0.0ms/19.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.9
+
+doing frame 447
+initial guess:		-0.007 -0.007 0.002
+initial minimisation:	-0.015 0.007 0.017  (err=8814.345)
+match overlap: 99.4%
+optimum rotation:	-0.015 0.007 0.017  (err=8814.345/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.3
+
+doing frame 448
+initial guess:		-0.014 0.005 0.016
+initial minimisation:	-0.006 0.002 -0.004  (err=8858.196)
+match overlap: 99.7%
+optimum rotation:	-0.006 0.002 -0.004  (err=8858.196/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/0.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.6
+
+doing frame 449
+initial guess:		-0.006 0.002 -0.002
+initial minimisation:	-0.011 -0.001 0.005  (err=8843.623)
+match overlap: 99.7%
+optimum rotation:	-0.011 -0.001 0.005  (err=8843.623/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.7
+
+doing frame 450
+initial guess:		-0.011 -0.000 0.005
+initial minimisation:	-0.012 -0.004 -0.010  (err=8615.079)
+match overlap: 99.5%
+optimum rotation:	-0.012 -0.004 -0.010  (err=8615.079/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.9
+
+doing frame 451
+initial guess:		-0.012 -0.004 -0.008
+initial minimisation:	-0.020 -0.001 0.001  (err=9535.320)
+match overlap: 99.3%
+optimum rotation:	-0.020 -0.001 0.001  (err=9535.320/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.9
+
+doing frame 452
+initial guess:		-0.019 -0.001 0.000
+initial minimisation:	-0.017 0.002 0.007  (err=10009.230)
+match overlap: 99.3%
+optimum rotation:	-0.017 0.002 0.007  (err=10009.230/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.0
+
+doing frame 453
+initial guess:		-0.017 0.002 0.006
+initial minimisation:	-0.005 0.001 0.012  (err=10019.881)
+match overlap: 99.8%
+optimum rotation:	-0.005 0.001 0.012  (err=10019.881/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.0
+
+doing frame 454
+initial guess:		-0.006 0.001 0.012
+initial minimisation:	-0.009 -0.003 0.026  (err=9653.454)
+match overlap: 99.6%
+optimum rotation:	-0.009 -0.003 0.026  (err=9653.454/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.4
+
+doing frame 455
+initial guess:		-0.008 -0.002 0.024
+initial minimisation:	-0.011 0.002 0.028  (err=9253.504)
+match overlap: 99.7%
+optimum rotation:	-0.011 0.002 0.028  (err=9253.504/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.7
+
+doing frame 456
+initial guess:		-0.011 0.001 0.028
+initial minimisation:	-0.011 0.002 0.018  (err=9448.315)
+match overlap: 99.7%
+optimum rotation:	-0.011 0.002 0.018  (err=9448.315/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.2
+
+doing frame 457
+initial guess:		-0.011 0.002 0.019
+initial minimisation:	-0.009 0.001 0.016  (err=9654.974)
+match overlap: 99.7%
+optimum rotation:	-0.009 0.001 0.016  (err=9654.974/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.7
+
+doing frame 458
+initial guess:		-0.009 0.001 0.016
+initial minimisation:	-0.005 0.001 0.008  (err=9549.029)
+match overlap: 99.9%
+optimum rotation:	-0.005 0.001 0.008  (err=9549.029/its=38)
+grab/test/save/draw/wait/total time: 0.0ms/18.9ms/0.0ms/1.0ms/0.0ms/19.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.5
+
+doing frame 459
+initial guess:		-0.005 0.001 0.009
+initial minimisation:	-0.014 -0.000 -0.022  (err=8869.577)
+match overlap: 99.7%
+optimum rotation:	-0.014 -0.000 -0.022  (err=8869.577/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.5
+
+doing frame 460
+initial guess:		-0.013 -0.000 -0.019
+initial minimisation:	-0.012 -0.001 -0.013  (err=8953.121)
+match overlap: 99.7%
+optimum rotation:	-0.012 -0.001 -0.013  (err=8953.121/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/22.9ms/0.0ms/37.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.8
+
+doing frame 461
+initial guess:		-0.012 -0.001 -0.013
+initial minimisation:	-0.013 0.001 -0.001  (err=8753.365)
+match overlap: 99.8%
+optimum rotation:	-0.013 0.001 -0.001  (err=8753.365/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/0.0ms/1.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.0
+
+doing frame 462
+initial guess:		-0.013 0.001 -0.002
+initial minimisation:	-0.008 -0.003 0.005  (err=9052.882)
+match overlap: 99.8%
+optimum rotation:	-0.008 -0.003 0.005  (err=9052.882/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.1
+
+doing frame 463
+initial guess:		-0.008 -0.003 0.004
+initial minimisation:	-0.012 0.002 0.019  (err=8754.436)
+match overlap: 99.7%
+optimum rotation:	-0.012 0.002 0.019  (err=8754.436/its=42)
+grab/test/save/draw/wait/total time: 0.0ms/20.9ms/0.0ms/0.0ms/0.0ms/20.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 51.9
+
+doing frame 464
+initial guess:		-0.011 0.001 0.018
+initial minimisation:	-0.012 -0.001 0.025  (err=9186.049)
+match overlap: 99.8%
+optimum rotation:	-0.012 -0.001 0.025  (err=9186.049/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 52.2
+
+doing frame 465
+initial guess:		-0.012 -0.001 0.024
+initial minimisation:	-0.006 0.000 0.027  (err=9737.775)
+match overlap: 99.9%
+optimum rotation:	-0.006 0.000 0.027  (err=9737.775/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/0.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.0
+
+doing frame 466
+initial guess:		-0.007 0.000 0.027
+initial minimisation:	-0.011 0.004 0.012  (err=9839.218)
+match overlap: 99.8%
+optimum rotation:	-0.011 0.004 0.012  (err=9839.218/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.4
+
+doing frame 467
+initial guess:		-0.010 0.004 0.014
+initial minimisation:	-0.009 -0.000 0.016  (err=10265.643)
+match overlap: 99.9%
+optimum rotation:	-0.009 -0.000 0.016  (err=10265.643/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/0.0ms/1.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 53.9
+
+doing frame 468
+initial guess:		-0.009 0.000 0.016
+initial minimisation:	-0.008 0.000 0.008  (err=10209.273)
+match overlap: 99.8%
+optimum rotation:	-0.008 0.000 0.008  (err=10209.273/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/0.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.6
+
+doing frame 469
+initial guess:		-0.008 0.000 0.009
+initial minimisation:	-0.006 -0.001 0.004  (err=10205.717)
+match overlap: 99.9%
+optimum rotation:	-0.006 -0.001 0.004  (err=10205.717/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.7
+
+doing frame 470
+initial guess:		-0.006 -0.001 0.005
+initial minimisation:	-0.016 0.000 0.005  (err=9780.183)
+match overlap: 99.7%
+optimum rotation:	-0.016 0.000 0.005  (err=9780.183/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/1.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.0
+
+doing frame 471
+initial guess:		-0.015 0.000 0.005
+initial minimisation:	-0.025 0.001 0.005  (err=9311.157)
+match overlap: 99.7%
+optimum rotation:	-0.025 0.001 0.005  (err=9311.157/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/0.0ms/0.0ms/0.0ms/12.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.8
+
+doing frame 472
+initial guess:		-0.024 0.001 0.005
+initial minimisation:	-0.010 -0.005 0.019  (err=9068.727)
+match overlap: 99.8%
+optimum rotation:	-0.010 -0.005 0.019  (err=9068.727/its=35)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.8
+
+doing frame 473
+initial guess:		-0.012 -0.004 0.017
+initial minimisation:	-0.010 0.004 0.011  (err=9809.327)
+match overlap: 99.9%
+optimum rotation:	-0.010 0.004 0.011  (err=9809.327/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/11.9ms/1.0ms/0.0ms/0.0ms/12.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.6
+
+doing frame 474
+initial guess:		-0.010 0.003 0.012
+initial minimisation:	-0.010 0.001 0.009  (err=9081.006)
+match overlap: 99.9%
+optimum rotation:	-0.010 0.001 0.009  (err=9081.006/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 475
+initial guess:		-0.010 0.001 0.010
+initial minimisation:	-0.009 0.000 0.007  (err=8934.521)
+match overlap: 100.0%
+optimum rotation:	-0.009 0.000 0.007  (err=8934.521/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 476
+initial guess:		-0.009 0.000 0.007
+initial minimisation:	-0.010 0.003 0.008  (err=9329.009)
+match overlap: 99.8%
+optimum rotation:	-0.010 0.003 0.008  (err=9329.009/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/0.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.7
+
+doing frame 477
+initial guess:		-0.010 0.003 0.008
+initial minimisation:	-0.009 -0.001 -0.032  (err=8856.949)
+match overlap: 99.9%
+optimum rotation:	-0.009 -0.001 -0.032  (err=8856.949/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.5
+
+doing frame 478
+initial guess:		-0.009 -0.001 -0.028
+initial minimisation:	-0.012 -0.000 0.001  (err=8876.517)
+match overlap: 99.9%
+optimum rotation:	-0.012 -0.000 0.001  (err=8876.517/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.4
+
+doing frame 479
+initial guess:		-0.012 -0.000 -0.002
+initial minimisation:	-0.012 -0.001 -0.002  (err=8888.509)
+match overlap: 99.9%
+optimum rotation:	-0.012 -0.001 -0.002  (err=8888.509/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.0
+
+doing frame 480
+initial guess:		-0.012 -0.001 -0.002
+initial minimisation:	-0.006 -0.001 0.001  (err=9065.185)
+match overlap: 99.9%
+optimum rotation:	-0.006 -0.001 0.001  (err=9065.185/its=34)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/0.0ms/23.9ms/0.0ms/40.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.3
+
+doing frame 481
+initial guess:		-0.006 -0.001 0.001
+initial minimisation:	-0.008 -0.000 0.004  (err=9190.126)
+match overlap: 99.9%
+optimum rotation:	-0.008 -0.000 0.004  (err=9190.126/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/1.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 54.6
+
+doing frame 482
+initial guess:		-0.008 -0.000 0.003
+initial minimisation:	-0.009 -0.000 0.003  (err=9295.231)
+match overlap: 100.0%
+optimum rotation:	-0.009 -0.000 0.003  (err=9295.231/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/0.0ms/0.0ms/0.0ms/12.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.4
+
+doing frame 483
+initial guess:		-0.009 -0.000 0.003
+initial minimisation:	-0.013 0.002 0.018  (err=9118.512)
+match overlap: 99.8%
+optimum rotation:	-0.013 0.002 0.018  (err=9118.512/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 55.6
+
+doing frame 484
+initial guess:		-0.012 0.002 0.017
+initial minimisation:	-0.005 -0.001 0.017  (err=9047.439)
+match overlap: 100.0%
+optimum rotation:	-0.005 -0.001 0.017  (err=9047.439/its=29)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.1
+
+doing frame 485
+initial guess:		-0.006 -0.001 0.017
+initial minimisation:	-0.006 -0.001 0.019  (err=9451.873)
+match overlap: 99.9%
+optimum rotation:	-0.006 -0.001 0.019  (err=9451.873/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/0.0ms/1.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 486
+initial guess:		-0.006 -0.001 0.019
+initial minimisation:	-0.011 0.004 -0.001  (err=9531.081)
+match overlap: 100.0%
+optimum rotation:	-0.011 0.004 -0.001  (err=9531.081/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/16.9ms/1.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 487
+initial guess:		-0.011 0.003 0.001
+initial minimisation:	-0.011 0.002 -0.002  (err=9712.067)
+match overlap: 99.8%
+optimum rotation:	-0.011 0.002 -0.002  (err=9712.067/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.9
+
+doing frame 488
+initial guess:		-0.011 0.002 -0.001
+initial minimisation:	-0.010 -0.003 0.002  (err=10020.928)
+match overlap: 99.9%
+optimum rotation:	-0.010 -0.003 0.002  (err=10020.928/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.2
+
+doing frame 489
+initial guess:		-0.010 -0.002 0.002
+initial minimisation:	-0.010 -0.001 -0.001  (err=10332.892)
+match overlap: 99.9%
+optimum rotation:	-0.010 -0.001 -0.001  (err=10332.892/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.8
+
+doing frame 490
+initial guess:		-0.010 -0.001 -0.000
+initial minimisation:	-0.007 -0.001 0.003  (err=10236.444)
+match overlap: 100.0%
+optimum rotation:	-0.007 -0.001 0.003  (err=10236.444/its=27)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.4
+
+doing frame 491
+initial guess:		-0.007 -0.001 0.002
+initial minimisation:	-0.019 0.003 0.016  (err=10525.080)
+match overlap: 99.9%
+optimum rotation:	-0.019 0.003 0.016  (err=10525.080/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.2
+
+doing frame 492
+initial guess:		-0.018 0.003 0.014
+initial minimisation:	-0.007 -0.003 0.014  (err=10402.333)
+match overlap: 99.9%
+optimum rotation:	-0.007 -0.003 0.014  (err=10402.333/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 58.4
+
+doing frame 493
+initial guess:		-0.008 -0.003 0.014
+initial minimisation:	-0.008 -0.002 0.014  (err=10335.742)
+match overlap: 100.0%
+optimum rotation:	-0.008 -0.002 0.014  (err=10335.742/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/0.0ms/0.0ms/0.0ms/12.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.2
+
+doing frame 494
+initial guess:		-0.008 -0.002 0.014
+initial minimisation:	-0.010 -0.002 0.014  (err=9937.652)
+match overlap: 99.9%
+optimum rotation:	-0.010 -0.002 0.014  (err=9937.652/its=31)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/1.0ms/0.0ms/0.0ms/15.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.3
+
+doing frame 495
+initial guess:		-0.010 -0.002 0.014
+initial minimisation:	-0.012 -0.000 0.014  (err=9909.893)
+match overlap: 99.9%
+optimum rotation:	-0.012 -0.000 0.014  (err=9909.893/its=25)
+grab/test/save/draw/wait/total time: 0.0ms/11.9ms/1.0ms/0.0ms/0.0ms/12.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.0
+
+doing frame 496
+initial guess:		-0.011 -0.001 0.014
+initial minimisation:	-0.002 0.002 0.006  (err=9820.328)
+match overlap: 100.0%
+optimum rotation:	-0.002 0.002 0.006  (err=9820.328/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.6
+
+doing frame 497
+initial guess:		-0.003 0.002 0.007
+initial minimisation:	-0.005 0.002 0.002  (err=9671.879)
+match overlap: 100.0%
+optimum rotation:	-0.005 0.002 0.002  (err=9671.879/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.9
+
+doing frame 498
+initial guess:		-0.005 0.002 0.002
+initial minimisation:	-0.012 -0.003 0.002  (err=9422.103)
+match overlap: 100.0%
+optimum rotation:	-0.012 -0.003 0.002  (err=9422.103/its=36)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/1.0ms/0.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 59.5
+
+doing frame 499
+initial guess:		-0.012 -0.002 0.002
+initial minimisation:	-0.012 -0.002 0.002  (err=10194.009)
+match overlap: 99.9%
+optimum rotation:	-0.012 -0.002 0.002  (err=10194.009/its=28)
+grab/test/save/draw/wait/total time: 0.0ms/12.9ms/1.0ms/0.0ms/0.0ms/13.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 60.1
+
+doing frame 500
+initial guess:		-0.012 -0.002 0.002
+initial minimisation:	-0.012 0.002 0.010  (err=9898.127)
+match overlap: 99.9%
+optimum rotation:	-0.012 0.002 0.010  (err=9898.127/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/14.9ms/0.0ms/22.9ms/0.0ms/37.8ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 501
+initial guess:		-0.012 0.001 0.010
+initial minimisation:	-0.003 -0.002 0.006  (err=10069.998)
+match overlap: 100.0%
+optimum rotation:	-0.003 -0.002 0.006  (err=10069.998/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/0.0ms/1.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.6
+
+doing frame 502
+initial guess:		-0.004 -0.002 0.006
+initial minimisation:	-0.011 0.002 0.006  (err=10060.419)
+match overlap: 100.0%
+optimum rotation:	-0.011 0.002 0.006  (err=10060.419/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/0.0ms/0.0ms/17.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.5
+
+doing frame 503
+initial guess:		-0.010 0.001 0.006
+initial minimisation:	-0.014 0.003 0.009  (err=10004.914)
+match overlap: 100.0%
+optimum rotation:	-0.014 0.003 0.009  (err=10004.914/its=32)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.7
+
+doing frame 504
+initial guess:		-0.013 0.003 0.008
+initial minimisation:	-0.001 -0.001 0.006  (err=10627.086)
+match overlap: 100.0%
+optimum rotation:	-0.001 -0.001 0.006  (err=10627.086/its=33)
+grab/test/save/draw/wait/total time: 0.0ms/15.9ms/1.0ms/0.0ms/0.0ms/16.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.8
+
+doing frame 505
+initial guess:		-0.002 -0.000 0.006
+initial minimisation:	-0.012 -0.004 0.008  (err=10312.396)
+match overlap: 99.9%
+optimum rotation:	-0.012 -0.004 0.008  (err=10312.396/its=37)
+grab/test/save/draw/wait/total time: 0.0ms/17.9ms/0.0ms/1.0ms/0.0ms/18.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 56.6
+
+doing frame 506
+initial guess:		-0.011 -0.004 0.008
+initial minimisation:	-0.004 -0.000 0.003  (err=10321.869)
+match overlap: 100.0%
+optimum rotation:	-0.004 -0.000 0.003  (err=10321.869/its=30)
+grab/test/save/draw/wait/total time: 0.0ms/13.9ms/1.0ms/0.0ms/0.0ms/14.9ms
+Output Video Buffer NumFrames: 1
+Loop FPS: 57.0
+
+doing frame 507
+initial guess:		-0.005 -0.001 0.003
+initial minimisation:	-0.007 -0.001 0.001  (err=10934.635)
+match overlap: 100.0%
