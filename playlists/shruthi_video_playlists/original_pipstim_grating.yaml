@@ -1,0 +1,108 @@
+configuration:
+  analog_in_channels:
+    0: 'Copy of optogenetics'
+  analog_out_channels:
+    0: 'LED control for optogenetics'
+  attenuation_file: None
+  delay: 5
+  fictrac_config: FicTracPGR_ConfigMaster.txt
+  fictrac_console_out: log.txt
+  keepalive_audio: false
+  keepalive_video: false
+  pgr_cam_disable: false
+  phidget_network: false
+  print_defaults: false
+  projector_disable: false
+  remote_2P_disable: true
+  remote_2P_next_disable: true
+  remote_next_2P_channel: 5
+  remote_start_2P_channel: 3
+  remote_stop_2P_channel: 4
+  samplerate_daq: 10000
+  scanimage_next_start_delay: 500
+  screen_calibration: CalibratedBallImage.data
+  use_RSE: true
+  verbose: false
+  wait: true
+playlist:
+  daq:
+    - NoLight:
+        attenuator: null
+        amplitude: 0.0
+        duration: 60000
+        name: constant
+        sample_rate: 10000
+    - Opto1090-3-1:
+        amplitude_a: 3.0
+        duration_a: 10000
+        amplitude_b: 0.0
+        duration_b: 90000
+        name: pulse
+        sample_rate: 10000
+    - Opto1090-5-1:
+        amplitude_a: 5.0
+        duration_a: 10000
+        amplitude_b: 0.0
+        duration_b: 90000
+        name: pulse
+        sample_rate: 10000
+    - Opto1090-7-1:
+        amplitude_a: 7.0
+        duration_a: 10000
+        amplitude_b: 0.0
+        duration_b: 90000
+        name: pulse
+        sample_rate: 10000
+  video:
+    - v_pip_stim1: 
+        name: 'pipstim'
+        fps: 10 
+        offset: [0.2, -0.6]
+        size: [0.1, 0.1]
+        fg_color: -1
+        bg_color: 1 
+    - v_pip_stim2: 
+        name: 'pipstim'
+        fps: 10 
+        offset: [0.2, -0.6]
+        size: [0.1, 0.1]
+        fg_color: -1
+        bg_color: 1 
+    - v_pip_stim3: 
+        name: 'pipstim'
+        fps: 10 
+        offset: [0.2, -0.6]
+        size: [0.1, 0.1]
+        fg_color: -1
+        bg_color: 1 
+    - v_pip_stim4: 
+        name: 'pipstim'
+        fps: 10 
+        offset: [0.2, -0.6]
+        size: [0.1, 0.1]
+        fg_color: -1
+        bg_color: 1 
+    - v_grating1: 
+        name: 'grating' 
+        sf: 10
+time:
+  10.0E3: #in units milliseconds - start 10 seconds in and play pipstim without light on for 5 minutes = 300 seconds
+    do:
+      - playlist_item: {backend: 'daq', identifier: 'NoLight'}
+      - playlist_item: {backend: 'video', identifier: 'v_pip_stim1'}
+  310.0E3: # play pipstim with light voltage=3V for 5 mins = 300 seconds
+    do:
+      - playlist_item: {backend: 'daq', identifier: 'Opto1090-3-1'}
+      - playlist_item: {backend: 'video', identifier: 'v_pip_stim2'}
+  610.0E3:
+    do:
+      - playlist_item: {backend: 'daq', identifier: 'NoLight'}
+      - playlist_item: {backend: 'video', identifier: 'v_pip_stim3'}
+  910.0E3:
+    do:
+      - playlist_item: {backend: 'daq', identifier: 'Opto1090-3-1'}
+      - playlist_item: {backend: 'video', identifier: 'v_pip_stim4'}  
+  1210.0E3:
+   do:
+      - playlist_item: {backend: 'daq', identifier: 'NoLight'}
+      - playlist_item: {backend: 'video', identifier: 'v_grating1'}   
