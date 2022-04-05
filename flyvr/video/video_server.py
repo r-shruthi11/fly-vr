@@ -9,6 +9,8 @@ import pkg_resources
 
 import h5py
 import numpy as np
+from scipy.io import loadmat
+from scipy.signal import resample
 
 from flyvr.common import Randomizer, BACKEND_VIDEO
 from flyvr.common.dottable import Dottable
