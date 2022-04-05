@@ -12,7 +12,7 @@ venv
 *.pyc
 *.egg-info
 my_config.txt
-data/**
+flyvr/data/**
 tests/**
 tests/test_data/fictrac/test.avi
 tests/test_data/fictrac/test.dat
